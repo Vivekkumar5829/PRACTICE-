@@ -230,3 +230,48 @@
         }
         return start;
     }
+
+
+
+// 13. 349. Intersection of Two Arrays.
+    public static int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> set = new HashSet<Integer>();
+        for(int i : nums1){
+            set.add(i);
+        }
+        HashSet<Integer> intersection = new HashSet<Integer>();
+        for(int i : nums2){
+            if(set.contains(i)){
+                intersection.add(i);
+            }
+        }
+        int[] result = new int[intersection.size()];
+        int index = 0;
+        for(int i : intersection){
+            result[index++] = i;
+        }
+        return result;
+
+    }
+
+
+// 14. 350. Intersection of Two Arrays II.
+    public static int[] intersect(int[] nums1, int[] nums2) {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        int[] ans = new int[nums1.length * nums2.length];
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        while (i < nums1.length && j < nums2.length){
+            if(nums1[i] < nums2[j]){
+                i++;
+            }else if(nums1[i] > nums2[j]){
+                j++;
+            }else{
+                ans[k++] = nums1[i++];
+                j++;
+            }
+        }
+        return Arrays.copyOfRange(ans,0,k);
+    }
