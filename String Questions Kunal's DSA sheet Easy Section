@@ -37,3 +37,49 @@
         }
         return str.toString();
     }
+
+
+// 4. 1859. Sorting the Sentence.
+    public static String  sortSentence(String s) {
+        String[] str = s.split(" ");
+        String[] result = new String[str.length];
+        for(int i = 0; i < str.length; i++){
+            int k = Character.getNumericValue(str[i].charAt(str[i].length() - 1));
+            result[k- 1] = str[i].substring(0,str[i].length() -1);
+        }
+       StringBuilder strr = new StringBuilder();
+        for(int i = 0; i < result.length; i++){
+            strr.append(result[i]).append(" ");
+        }
+    return strr.toString().trim();
+    }
+
+
+// 5. 1662. Check If Two String Arrays are Equivalent.
+    public static boolean   arrayStringsAreEqual(String[] word1, String[] word2) {
+        StringBuilder str1 = new StringBuilder();
+        StringBuilder str2 = new StringBuilder();
+        for(int i = 0 ; i < word1.length; i++){
+            str1.append(word1[i]);
+        }
+        for(int i = 0 ; i < word2.length; i++){
+            str2.append(word2[i]);
+        }
+        String str3 = str1.toString();
+        String str4 = str2.toString();
+        return str3.equals(str4);
+    }
+
+
+// 6. 709 To Lower Case.
+    public static String toLowerCase(String s) {
+        StringBuilder str = new StringBuilder(s);
+        for (int i = 0; i < str.length(); i++) {
+            Character ch = str.charAt(i);
+            if (Character.isUpperCase(ch)) {
+                str.replace(i, i + 1,
+                        Character.toLowerCase(ch) + "");
+            }
+    }
+        return str.toString();
+    }
