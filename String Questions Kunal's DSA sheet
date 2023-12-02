@@ -1,0 +1,39 @@
+// 1. 1108. Defanging an IP Address.
+    public static String defangIPaddr(String address) {
+        StringBuilder str = new StringBuilder();  //StringBuilder is faster than StringBuffer(because of properties StringBuffer have thread-safe and synchronized).
+        for(int i = 0; i < address.length(); i++){
+            if(address.charAt(i) == '.'){
+                str.append("[.]");
+            }else {
+                str.append(address.charAt(i));
+            }
+        }
+        return str.toString();
+    }
+
+// 2. 1528. Shuffle String.
+    public static String restoreString(String s, int[] indices) {
+       char[] cha = new char[s.length()];
+        for(int i =  0; i < s.length(); i++){
+            cha[indices[i]] = s.charAt(i);
+        }
+        return new String(cha);
+    }
+
+
+// 3. 1678. Goal Parser Interpretation.
+    public static String interpret(String command) {
+        StringBuilder str = new StringBuilder();
+        for(int i = 0; i < command.length(); i++){
+            if(command.charAt(i) == '(' && command.charAt(i+1) == ')'){
+                str.append("o");
+                i++;
+            }else if(command.charAt(i) == '(' && command.charAt(i+1) == 'a' && command.charAt(i+2) == 'l' && command.charAt(i + 3) == ')'){
+                str.append("al");
+                i = i+3;
+            } else{
+                str.append(command.charAt(i));
+            }
+        }
+        return str.toString();
+    }
