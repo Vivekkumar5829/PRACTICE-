@@ -174,3 +174,22 @@
         }
        return result.toString().trim();
    }
+
+
+ // 12. 28. Find the Index of the First Occurrence in a String.
+   public static  int strStr(String haystack, String needle) {
+       int nIndex = 0;
+       for(int i=0; i<haystack.length(); i++){
+           if(haystack.charAt(i)==needle.charAt(nIndex)){
+               nIndex++;
+           }
+           else{
+               i=i-nIndex;
+               nIndex=0;
+           }
+           if(nIndex==needle.length()){
+               return i-needle.length()+1;
+           }
+       }
+       return -1;
+   }
