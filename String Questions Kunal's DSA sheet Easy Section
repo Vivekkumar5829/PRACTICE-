@@ -83,3 +83,61 @@
     }
         return str.toString();
     }
+
+
+  // 7. 1704. Determine if String Halves Are Alike.
+    public static boolean halvesAreAlike(String s) {
+        String str1 = s.substring(0, s.length() / 2);
+        String str2 = s.substring(s.length() / 2);
+        int count1 = 0;
+        int count2 = 0;
+        for (int i = 0; i < s.length() / 2; i++) {
+            char ch = str1.charAt(i);
+            char ch1 = str2.charAt(i);
+            if (isVowel(ch)) {
+                count1++;
+            }
+            if (isVowel(ch1)) {
+                count2++;
+            }
+        }
+        if (count1 == count2)
+            return true;
+        return false;
+    }
+
+    public static boolean isVowel(char ch) {
+        return switch (ch) {
+            case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' -> true;
+            default -> false;
+        };
+    }
+
+
+ // 8. 1309. Decrypt String from Alphabet to Integer Mapping.
+    public static String freqAlphabets(String s) {
+        StringBuilder result = new StringBuilder();
+        for(int i = s.length() - 1; i >= 0; i--){
+            int number;
+            if(s.charAt(i) == '#'){
+                number = (s.charAt(i - 2) - '0') * 10 + (s.charAt(i - 1) - '0');
+                i = i - 2;
+            }else {
+                number = s.charAt(i) - '0';
+            }
+            result.append((char) (number + 96));
+        }
+       return result.reverse().toString();
+    }
+
+
+// 9. 1967. Number of Strings That Appear as Substrings in Word.
+    public static int numOfStrings(String[] patterns, String word) {
+        int count = 0;
+        for(String s : patterns){
+            boolean isPresent = word.contains(s);
+            if(isPresent)
+                count++;
+        }
+        return count;
+    }
