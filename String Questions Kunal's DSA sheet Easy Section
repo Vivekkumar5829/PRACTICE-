@@ -141,3 +141,24 @@
         }
         return count;
     }
+
+
+// 10. 657 Robot Return to Origin
+   public static boolean judgeCircle(String moves) {
+        int[] count = {0,0};
+        for(int i = 0; i < moves.length(); i++){
+            if(moves.charAt(i) == 'R'){
+                count[0] += 1;
+            }else if(moves.charAt(i) == 'L'){
+                count[0] -= 1;
+            }else if(moves.charAt(i) == 'U'){
+                count[1] += 1;
+            }else{
+                count[1] -= 1;
+            }
+        }
+        if(count[0] == 0 && count[1] == 0){
+            return true;
+        }
+        return false;
+   }
