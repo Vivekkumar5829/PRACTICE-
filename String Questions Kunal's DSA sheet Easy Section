@@ -162,3 +162,15 @@
         }
         return false;
    }
+
+
+ // 11. 557. Reverse Words in a String III.
+   public static String reverseWords(String s) {
+        String[] str = s.split(" ");
+        StringBuilder result = new StringBuilder();
+        for(int i = 0; i < str.length; i++) {
+            StringBuilder reversed = new StringBuilder(str[i]).reverse();
+            result.append(reversed).append(" ");
+        }
+       return result.toString().trim();
+   }
