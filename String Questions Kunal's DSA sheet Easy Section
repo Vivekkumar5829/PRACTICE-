@@ -408,3 +408,22 @@
        }
        return stb.toString();
     }
+
+
+
+//    23. 1784. Check if Binary String Has at Most One Segment of Ones.
+    public boolean checkOnesSegment(String s) {
+        int i=0,j=i+1;
+        boolean is = false;
+        while(j<s.length()) {
+            if(s.charAt(i) == '1') {
+                if(s.charAt(j) == '1' && is) {
+                    return false;
+                } else if(s.charAt(j) == '0'){
+                    is = true;
+                }
+            }
+            j++;
+        }
+        return true;
+    }
