@@ -391,3 +391,20 @@
         }
         return stb.reverse().toString() + word.substring(num + 1);
     }
+
+
+    // 22. 1768. Merge Strings Alternately.
+    public static String mergeAlternately(String word1, String word2) {
+        StringBuilder stb = new StringBuilder();
+       int i = 0;
+       while (i < word1.length() || i < word2.length()){
+           if(i < word1.length()){
+               stb.append(word1.charAt(i));
+           }
+           if(i < word2.length()){
+               stb.append(word2.charAt(i));
+           }
+           i++;
+       }
+       return stb.toString();
+    }
