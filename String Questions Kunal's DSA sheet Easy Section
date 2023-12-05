@@ -331,3 +331,43 @@
         return stk.isEmpty();
   }
 
+
+    // 20. 13. Roman to Integer.
+    public static int romanToInt(String s) {
+        int num = 0;
+        for(int i = 0; i < s.length(); i++){
+            if(i < s.length() - 1 &&engToNum(s.charAt(i)) < engToNum(s.charAt(i + 1))){
+                num -= engToNum(s.charAt(i));
+            }else{
+                num +=  engToNum(s.charAt(i));
+            }
+        }
+        return num;
+    }
+    public static int engToNum(char ch){
+        int number = 0;
+        switch (ch){
+            case 'I':
+                 number = 1;
+                break;
+            case 'V':
+                number = 5;
+            break;
+            case 'X':
+                number =  10;
+            break;
+            case 'L':
+                number = 50;
+            break;
+            case 'C':
+                number = 100;
+            break;
+            case 'D':
+                number = 500;
+            break;
+            case 'M':
+                number = 1000;
+        }
+        return  number;
+    }
+
