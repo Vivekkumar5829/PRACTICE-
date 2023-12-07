@@ -8,3 +8,27 @@
        }
        Arrays.sort(nums1);
     }
+
+
+    // 2. 169. Majority Element.
+    public static int majorityElement(int[] nums) {
+        int j = 0;
+       while (j < nums.length) {
+           int current = nums[j];
+           int i = 0;
+           int count = 0;
+           while (i < nums.length) {
+               if (current == nums[i]) {
+                   count++;
+               }
+               i++;
+           }
+           if (count > nums.length / 2) {
+               return current;
+           }else{
+               j++;
+           }
+       }
+       return  -1;
+
+    }
