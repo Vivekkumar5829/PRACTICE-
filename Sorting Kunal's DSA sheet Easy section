@@ -100,3 +100,27 @@
     return Arrays.copyOfRange(result,0,k);
     }
 
+
+
+    // 7. 414. Third Maximum Number.
+    public static int thirdMax(int[] nums) {
+        Arrays.sort(nums);
+       HashSet<Integer> set = new HashSet<>();
+       for(int i : nums){
+           set.add(i);
+       }
+       int[] result = new int[set.size()];
+       int j = 0;
+       for(int i : set){
+           result[j++] = i;
+       }
+       Arrays.sort(result);
+       int thirdMax1 = 0;
+       if(result.length < 3){
+           return result[result.length - 1];
+       }else{
+            thirdMax1 = result[result.length - 3];
+       }
+       return thirdMax1;
+    }
+
