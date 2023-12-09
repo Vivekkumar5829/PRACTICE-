@@ -219,3 +219,23 @@
           Arrays.sort(result);
         return result;
     }
+
+    // 13. 1051. Height Checker.
+    public static int heightChecker(int[] heights) {
+        ArrayList<Integer> lst = new ArrayList<>();
+        for(int i : heights){
+            lst.add(i);
+        }
+        Collections.sort(lst);
+        int i = 0;
+        int count = 0;
+        while (i < heights.length){
+            if(heights[i] != lst.get(i)){
+               count++;
+               i++;
+            }else{
+                i++;
+            }
+        }
+        return count;
+    }
