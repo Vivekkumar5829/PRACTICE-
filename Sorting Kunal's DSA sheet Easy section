@@ -172,3 +172,25 @@
     return result;
 
     }
+
+
+
+    // 10. 922. Sort Array By Parity II.
+    public static int[] sortArrayByParityII(int[] nums) {
+        int[] result = new int[nums.length];
+        int i = 0;
+        int k = 0;
+        int j = 1;
+        while(i < nums.length){
+            if(nums[i] % 2 == 0){
+                result[k] = nums[i];
+                i++;
+                k += 2;
+            }else{
+                result[j] = nums[i];
+                i++;
+                j += 2;
+            }
+        }
+        return result;
+    }
