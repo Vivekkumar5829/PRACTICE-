@@ -239,3 +239,39 @@
         }
         return count;
     }
+
+
+
+    // 14. 1122. Relative Sort Array.
+    public static int[] relativeSortArray(int[] arr1, int[] arr2) {
+        int[] result = new int[arr1.length];
+        int k = 0;
+        for(int i : arr2){
+            for(int j : arr1){
+                if(i == j){
+                    result[k] = j;
+                    k++;
+                }
+            }
+        }
+        ArrayList<Integer> lst = new ArrayList<>();
+        for(int i = 0; i < arr1.length; i++){
+            int j;
+            for(j = 0; j < result.length; j++) {
+                if (arr1[i] == result[j]) {
+                    break;
+                }
+            }
+            if(j == result.length){
+                lst.add(arr1[i]);
+            }
+            if(arr1[i] == 0){
+                lst.add(0);
+            }
+        }
+        Collections.sort(lst);
+        for(int i : lst){
+            result[k++] = i;
+        }
+        return result;
+    }
