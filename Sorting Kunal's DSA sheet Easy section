@@ -1,4 +1,55 @@
-    // 1. 88. Merge Sorted Array.
+class main{
+    public static void main(String[] args) {
+//        int[] nums1 = {1,2,3,0,0,0};
+//        int[] nums2 = {2,5,6};
+//        int m = 3;
+//        int n = 3;
+//        merge(nums1,m,nums2,n);
+//        System.out.println(Arrays.toString(nums1));
+//         int[] nums = {2,2,1,1,1,2,1,1,1};
+//        System.out.println(majorityElement(nums));
+//        int[] nums = {1,2,3,1};
+//        System.out.println(containsDuplicate(nums));
+//          int[] nums = {9,6,4,2,3,5,7,0,1};
+//        System.out.println(missingNumber(nums));
+//        int[] nums1 = {4,9,5};
+//        int[] nums2 = {9,4,9,8,4};
+//        System.out.println(Arrays.toString(intersect(nums1, nums2)));
+//        int[] nums = {4,6,3,6,2,8,3,4,5,6};
+//        System.out.println(thirdMax(nums));
+//        int[] nums = {-8,-7,-2,10,20};
+//        System.out.println(maximumProduct(nums));
+//        int[] nums = {3,1,2,4};
+//        System.out.println(Arrays.toString(sortArrayByParity(nums)));
+//        int[] nums = {4,2,5,7};
+//        System.out.println(Arrays.toString(sortArrayByParityII(nums)));
+//        int[] nums = {2,1,2};
+//        int[] nums = {1,2,1,10};
+//        System.out.println(largestPerimeter(nums));
+//         int[] nums = {-4,-1,0,3,10};
+//        int[] nums = {-7,-3,2,3,11};
+//        System.out.println(Arrays.toString(sortedSquares(nums)));
+//        int[] nums = {1,1,4,2,1,3};
+//        int[] nums = {5,1,2,3,4};
+//        System.out.println(heightChecker(nums));
+//        int[] arr1 = {1,2,3,4,5,0};
+//        int[] arr2 = {4,1,3};
+//        System.out.println(Arrays.toString(relativeSortArray(arr1,arr2)));
+//          int[] arr = {4,2,1,3};
+//          minimumAbsDifference(arr);
+//        int[] arr = {4,2,1,3};
+//        System.out.println(minimumAbsDifference(arr));
+        int[] arr = {40,10,20,30};
+        System.out.println(Arrays.toString(arrayRankTransform(arr)));
+
+
+
+    }
+
+
+
+
+// 1. 88. Merge Sorted Array.
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
        int i = m;
        int j = 0;
