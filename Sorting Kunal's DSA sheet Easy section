@@ -342,3 +342,14 @@
         Arrays.sort(nums);
         return (nums[nums.length - 1] - 1) * (nums[nums.length - 2] - 1);
     }
+
+
+    // 20. 1491. Average Salary Excluding the Minimum and Maximum Salary.
+    public static double average(int[] salary) {
+        Arrays.sort(salary);
+        double aggregate = 0;
+        for(int i = 1; i < salary.length - 1; i++){
+            aggregate += salary[i];
+        }
+        return aggregate/(salary.length - 2);
+    }
