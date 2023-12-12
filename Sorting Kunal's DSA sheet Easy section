@@ -356,6 +356,19 @@
 
 
 
+    // 21. 1502. Can Make Arithmetic Progression From Sequence.
+    public static boolean canMakeArithmeticProgression(int[] arr) {
+        Arrays.sort(arr);
+        int difference = arr[1] - arr[0];
+        for(int i = 0; i < arr.length - 1; i++){
+            if(arr[i + 1] - arr[i] != difference){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 
    // 22. 448. Find All Numbers Disappeared in an Array.
    public static List<Integer> findDisappearedNumbers(int[] nums) {
