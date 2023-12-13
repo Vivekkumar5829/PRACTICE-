@@ -7,3 +7,13 @@ public static boolean isOdd(int num){
  public static boolean isEven(int num){
         return (num & 1) == 0 ;
     }
+
+
+    // 3. Which number appears once.
+    public static int appearsOnce(int[] nums){
+        int once = 0;
+        for(int i : nums){
+           once ^= i;
+        }
+        return once;
+    }
