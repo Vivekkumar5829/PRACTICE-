@@ -30,3 +30,13 @@ public static boolean isOdd(int num){
     public static int setBit(int num){
         return num | (num << num - 1);
     }
+
+
+    // 6. Reset the 5th bit, 1 --> 0 or 0 --> 1.
+    public static int reserBit(int num){
+        int n = ~(1 << num - 1);
+        return num & n;
+    }
+
+
+
