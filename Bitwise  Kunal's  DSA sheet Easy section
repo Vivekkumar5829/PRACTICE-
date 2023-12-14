@@ -24,3 +24,9 @@ public static boolean isOdd(int num){
     public static int bitNo(int num){
         return  num & (num << num - 1);
     }
+
+
+ // 5. Set the ith bit. 1 --> 0 or 0 --> 1.
+    public static int setBit(int num){
+        return num | (num << num - 1);
+    }
