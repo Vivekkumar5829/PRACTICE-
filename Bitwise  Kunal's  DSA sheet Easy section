@@ -17,3 +17,10 @@ public static boolean isOdd(int num){
         }
         return once;
     }
+
+
+
+    // 4. Find the 5th bit.
+    public static int bitNo(int num){
+        return  num & (num << num - 1);
+    }
