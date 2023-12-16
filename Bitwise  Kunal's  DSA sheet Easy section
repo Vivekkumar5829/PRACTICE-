@@ -53,3 +53,9 @@ public static boolean isOdd(int num){
     }
 
 
+
+    // 8. Find number of digits in the number.
+    public static int noOfDigits(int num, int base){
+        return (int)(Math.log(num) / Math.log(base)) + 1;
+    }
+
