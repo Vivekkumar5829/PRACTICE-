@@ -33,4 +33,17 @@ public class SinglyLinkedList {
     }
 
 
+    // 2. Insert element at the end of the Linked List.
+    public void insertLast(int value){
+        if(tail == null){
+            insertFirst(value);
+            return;
+        }
+        Node node = new Node(value);
+        tail.next = node;
+        tail = node;
+        size++;
+    }
+
+
 }
