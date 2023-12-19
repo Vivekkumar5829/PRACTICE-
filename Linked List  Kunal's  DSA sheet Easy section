@@ -64,4 +64,14 @@ public class SinglyLinkedList {
     }
 
 
+    // 4. Display the Linked List.
+    public void display(){
+        Node temp = head;
+        while (temp != null){
+            System.out.print(temp.value + " -->");
+           temp = temp.next;
+        }
+    }
+
+
 }
