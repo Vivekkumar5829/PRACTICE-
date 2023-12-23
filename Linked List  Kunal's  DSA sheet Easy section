@@ -208,6 +208,33 @@ public class SinglyLinkedList {
     }
 
 
+    // 11. 202. Happy Number.
+    public boolean isHappy(int n) {
+        int fast = n;
+        int slow = n;
+
+        do{
+            slow = findSquare(slow);
+            fast = findSquare(findSquare(fast));
+        }while (slow != fast);
+
+        if(slow == 1){
+            return true;
+        }
+        return false;
+    }
+
+    public int findSquare(int n){
+        int ans = 0;
+        while (n > 0){
+            int remainder = n % 10;
+            ans += remainder * remainder;
+            n = n / 10;
+        }
+        return ans;
+    }
+
+
 
 
 
