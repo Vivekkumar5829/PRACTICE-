@@ -324,6 +324,60 @@ public class SinglyLinkedList {
 
 
 
+// 16. 234. Palindrome Linked List
+
+    public boolean isPalindrome(Node head){
+        Node mid = middleNode(head);
+        Node headSecond = reverseList(mid);
+        Node reverseHead = headSecond;
+
+        while (head != null && headSecond != null){
+            if(head.value != headSecond.value){
+                break;
+            }
+            headSecond = headSecond.next;
+            head = head.next;
+        }
+        reverseList(reverseHead);
+        if(head == null || headSecond == null){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public Node reverseList(Node head) {
+        if (head == null){
+            return head;
+        }
+
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while (present != null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if(next != null){
+                next = next.next;
+            }
+        }
+        return prev;
+    }
+
+    public Node middleNode(Node head) {
+        Node fast = head;
+        Node slow = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+
+
 
 
 
