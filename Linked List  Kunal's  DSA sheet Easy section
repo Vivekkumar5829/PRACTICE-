@@ -301,6 +301,29 @@ public class SinglyLinkedList {
 
 
 
+    // 15. 206. Reverse Linked List.
+    public Node reverseList(Node head) {
+        if (head == null){
+            return head;
+        }
+
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while (present != null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if(next != null){
+                next = next.next;
+            }
+        }
+        return prev;
+    }
+
+
+
 
 
 
