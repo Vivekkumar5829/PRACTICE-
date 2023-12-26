@@ -378,6 +378,61 @@ public class SinglyLinkedList {
 
 
 
+    // 17. 143. Reorder List.
+ public Node reverseList(Node head) {
+        if (head == null){
+            return head;
+        }
+
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while (present != null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if(next != null){
+                next = next.next;
+            }
+        }
+        return prev;
+    }
+
+    public Node middleNode(Node head) {
+        Node fast = head;
+        Node slow = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public void reorderList(Node head) {
+        if(head == null || head.next == null){
+            return;
+        }
+
+        Node mid = middleNode(head);
+        Node hs = reverseList(mid);
+        Node hf = head;
+
+        while (hf != null && hs != null){
+            Node temp = hf.next;
+            hf.next = hs;
+            hf = temp;
+
+            temp = hs.next;
+            hs.next = hf;
+            hs = temp;
+        }
+        if(hf != null){
+            hf.next = null;
+        }
+    }
+
+
 
 
 
