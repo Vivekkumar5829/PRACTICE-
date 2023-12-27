@@ -433,6 +433,24 @@ public class SinglyLinkedList {
     }
 
 
+    // 18. 1290. Convert Binary Number in a Linked List to Integer.
+    public int getDecimalValue(Node head) {
+        Node temp = head;
+        int size = -1;
+        while (temp != null){
+            size++;
+            temp = temp.next;
+        }
+        Node node = head;
+        int ans = 0;
+        while (node != null){
+            ans += node.value * Math.pow(2, size--);
+            node = node.next;
+        }
+        return ans;
+    }
+
+
 
 
 
