@@ -505,6 +505,22 @@ public class SinglyLinkedList {
     }
 
 
+    // 23. 83. Remove Duplicates from Sorted List.(Revisited)
+    public Node deleteDuplicates(Node head) {
+       Node node = head;
+       if(node == null){
+           return node;
+       }
+       while (node.next != null){
+           if(node.value == node.next.value){
+               node.next = node.next.next;
+           }else{
+               node = node.next;
+           }
+       }
+       return head;
+    }
+
 
 
 
