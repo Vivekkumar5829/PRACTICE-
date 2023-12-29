@@ -4,7 +4,7 @@ public class StacknQueue {
 
 }
 
-//  1. Implementation of Queue using Stack.
+//  1. Implementation of Queue using Stack.(Insertion Constant)
 class QueueUsingStack{
     private Stack<Integer> first;
     private Stack<Integer> second;
