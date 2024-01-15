@@ -170,3 +170,14 @@
         return lst.size() == count;
 
     }
+
+// 12. 1732. Find the Highest Altitude
+  public static int largestAltitude(int[] gain) {
+       int max = 0;
+       int count = 0;
+       for(int i = 0; i < gain.length; i++){
+           count += gain[i];
+           max = Math.max(count, max);
+       }
+       return max;
+    }
