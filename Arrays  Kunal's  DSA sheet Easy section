@@ -148,3 +148,25 @@
       }
       return target;
     }
+
+
+    // 11. 1832. Check if the Sentence Is Pangram.
+    public static boolean   checkIfPangram(String sentence) {
+        ArrayList<Character> lst = new ArrayList<>();
+        HashSet<Character> set = new HashSet<>();
+        for(char ch : sentence.toCharArray()){
+            set.add(ch);
+        }
+        for(int i = 97; i <= 122; i++){
+            lst.add((char)i);
+        }
+        int count = 0;
+
+       for(char ch : set){
+           if(lst.contains(ch)){
+               count++;
+           }
+       }
+        return lst.size() == count;
+
+    }
