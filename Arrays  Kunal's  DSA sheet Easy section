@@ -206,3 +206,19 @@
         }
         return image;
     }
+
+
+   // 15. 1572. Matrix Diagonal Sum.
+    public  static int diagonalSum(int[][] mat) {
+        int diagonalSum = 0;
+      for(int i = 0; i < mat.length; i++){
+          for(int j = 0; j < mat[i].length; j++){
+              if(i == j){
+                  diagonalSum += mat[i][j];
+              }else if(i == mat[i].length - 1 - j){
+                  diagonalSum += mat[i][j];
+              }
+          }
+      }
+      return diagonalSum;
+    }
