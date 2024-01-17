@@ -252,3 +252,41 @@
         }
         return result;
     }
+
+
+    // 17. 989. Add to Array-Form of Integer.
+    public static List<Integer> addToArrayForm(int[] num, int k) {
+        ArrayList<Integer> lst = new ArrayList<>();
+//
+//        StringBuilder str = new StringBuilder();
+//        for(int i = 0; i < num.length; i++){
+//            str.append(num[i]);
+//        }
+//       int sum = k + Integer.parseInt(str.toString());
+//
+//        while (sum > 0){
+//            int remainder = sum % 10;
+//            sum = sum / 10;
+//            lst.add(remainder);
+//
+//        }
+//        return lst.reversed();
+
+        long number = num[num.length - 1];
+        int j = 1;
+
+        for(int i = num.length - 2; i >= 0; i--){
+             number += (long) num[i] * (int) Math.pow(10,j);
+            j++;
+            System.out.println(number);
+
+        }
+        long result = k + number;
+        System.out.println(result);
+        while (result > 0){
+            long remainder = result % 10;
+            result /=  10;
+            lst.add((int) remainder);
+        }
+        return lst.reversed();
+    }
