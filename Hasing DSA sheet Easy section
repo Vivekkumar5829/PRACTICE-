@@ -143,3 +143,19 @@ public static boolean  aredisjoint(int arr1[], int arr2[]){
         }
         return sum;
     }
+
+
+
+ // 8. Find missing elements of a range.
+    public static void missingNumber(int[] arr, int low, int high){
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int i = 0; i < arr.length; i++){
+            set.add(arr[i]);
+        }
+        for(int i = low; i <= high; i++){
+            if(!set.contains(i)){
+                System.out.println(i);
+            }
+        }
+    }
