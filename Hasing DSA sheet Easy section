@@ -60,3 +60,29 @@
         }
         return maxDistance;
     }
+
+
+
+    // 4. Most frequent element in an array.
+    public static int mostFrequent(int[] arr){
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int i = 0; i < arr.length; i++){
+            if(map.containsKey(arr[i])){
+                int freq = map.get(arr[i]);
+                freq++;
+                map.put(arr[i],freq);
+            }else {
+                map.put(arr[i],1);
+            }
+        }
+        int maxCount = 0;
+        int result = 0;
+        for(Map.Entry<Integer, Integer> val : map.entrySet()){
+            if(maxCount < val.getValue()){
+                result  = val.getKey();
+                maxCount = val.getValue();
+
+            }
+        }
+        return result;
+    }
