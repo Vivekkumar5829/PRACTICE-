@@ -122,3 +122,24 @@ public static boolean  aredisjoint(int arr1[], int arr2[]){
         }
         return true;
     }
+
+
+ // 7. Non-overlapping sum of two sets.
+    public static int nonOverlappingSum(int[] arr1, int[] arr2){
+        HashSet<Integer> set = new HashSet<>();
+        int sum = 0;
+        for(int i : arr1){
+            set.add(i);
+            sum += i;
+        }
+
+        for(int i = 0; i < arr2.length; i++){
+            if(!set.contains(arr2[i])){
+                set.add(i);
+                sum += arr2[i];
+            }else{
+                sum -= arr2[i];
+            }
+        }
+        return sum;
+    }
