@@ -108,3 +108,17 @@
         }
         return -1;
     }
+
+// 6. How to check if two given sets are disjoint?
+public static boolean  aredisjoint(int arr1[], int arr2[]){
+        HashSet<Integer> lst = new HashSet<>();
+        for(int i : arr1){
+            lst.add(i);
+        }
+        for(int j : arr2){
+            if(lst.contains(j)){
+                return false;
+            }
+        }
+        return true;
+    }
