@@ -1,2 +1,2 @@
 # PRACTICE-
-- All the resources used from @kunal Kushwaha DSA playlist.
+- Most the resources used are from @kunal Kushwaha DSA playlist.
