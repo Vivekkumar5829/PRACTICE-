@@ -1,0 +1,38 @@
+
+        // 1. Given sorted array, find the number of pairs which has a sum or difference is equal to k.
+        public static int sumpairs(int[] arr, int k) {
+            int start = 0;
+            int end = arr.length - 1;
+            int ans = 0;
+            while (start < end) {
+                if (arr[start] + arr[end] > k) {
+                    end--;
+                } else if (arr[start] + arr[end] < k) {
+                    start++;
+                } else {
+                    if(arr[start] == arr[end]){
+                        int n = (end - start);
+                        ans += (n *(n+1)/2);
+                        return ans;
+                    }
+
+                    if (arr[start] != arr[end]) {
+                        int c1 = 0;
+                        int c2 = 0;
+                        int left = arr[start];
+                        int right = arr[end];
+                        while (left == arr[start]) {
+                            c1++;
+                            start++;
+                        }
+                        while (right == arr[end]) {
+                            c2++;
+                            end--;
+                        }
+                        ans += (c1 * c2);
+                    }
+                }
+
+            }
+            return ans;
+        }
