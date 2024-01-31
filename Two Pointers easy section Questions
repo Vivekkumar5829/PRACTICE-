@@ -83,3 +83,24 @@
 
         return count;
     }
+
+
+// 4. 2697. Lexicographically Smallest Palindrome.
+    public static String makeSmallestPalindrome(String s) {
+        char[] ch = s.toCharArray();
+        int start = 0;
+        int end = s.length() - 1;
+
+        while (start < end){
+            if(ch[start] == ch[end]){
+                start++;
+                end--;
+            }else {
+                char minimum = (char)Math.min(ch[start],ch[end]);
+                ch[start] = ch[end] = minimum;
+                start++;
+                end--;
+            }
+        }
+        return new String(ch);
+    }
