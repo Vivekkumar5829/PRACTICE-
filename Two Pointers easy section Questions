@@ -37,16 +37,36 @@
             return ans;
         }
 
+  // 2. 2824. Count Pairs Whose Sum is Less than Target.
 
- public int arithmeticTriplets(int[] nums, int diff) {
-      Set<Integer> hst = new HashSet();
+    public static int countPairs(List<Integer> nums, int target) {
+        int start = 0;
+        int end = nums.size() - 1;
+        int count = 0;
+        Collections.sort(nums);
+
+        while (start < end){
+            if(nums.get(start) + nums.get(end) < target){
+                count += end - start;
+                start++;
+            } else {
+                end--;
+            }
+        }
+        return count;
+    }
+
+
+   // 3. 2367. Number of Arithmetic Triplets.
+    public int arithmeticTriplets(int[] nums, int diff) {
+        Set<Integer> hst = new HashSet();
         for(int num: nums)
             hst.add(num);
-        
 
-       int i=0,j=1;
-       int count=0;
-       while(i<=j && j<nums.length){
+
+        int i=0,j=1;
+        int count=0;
+        while(i<=j && j<nums.length){
 
             if(nums[j]-nums[i] < diff)
                 j++;
@@ -54,12 +74,12 @@
                 i++;
             else{
                 if(hst.contains(nums[j]+diff)){
-                      count++;
+                    count++;
                 }
                 i++;
-                j++;   
-            }        
-       }
+                j++;
+            }
+        }
 
-    return count;
+        return count;
     }
