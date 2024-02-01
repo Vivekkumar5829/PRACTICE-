@@ -212,6 +212,25 @@
         return result;
         }
 
+// 9. 2441. Largest Positive Integer That Exists With Its Negative.
+    public static int findMaxK(int[] nums) {
+        Arrays.sort(nums);
+        int start = 0;
+        int end = nums.length - 1;
+        while (start < end){
+            if(nums[start] == (-1 * nums[end])){
+                return nums[end];
+            }else if (nums[start] > (-1 * nums[end])){
+                end--;
+            }else{
+                start++;
+            }
+        }
+        return -1;
+    }
+
+
+
 
 
     // 10. 283. Move Zeroes.
