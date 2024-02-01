@@ -188,3 +188,26 @@
     return arr;
 
     }
+
+
+    // 8. 2562. Find the Array Concatenation Value.
+    public static long findTheArrayConcVal(int[] nums) {
+        int start = 0;
+        int end = nums.length - 1;
+        int result = 0;
+
+        while (start < end) {
+                String str1 = Integer.toString(nums[start]);
+                String str2 = Integer.toString(nums[end]);
+                String concate = str1 + str2;
+
+                result += Integer.parseInt(concate);
+                start++;
+                end--;
+
+            }
+        if(nums.length % 2 != 0){
+            result += nums[start];
+        }
+        return result;
+        }
