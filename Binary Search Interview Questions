@@ -561,3 +561,28 @@
         }
         return result;
     }
+
+
+
+    // 28. 2529. Maximum Count of Positive Integer and Negative Integer.
+    public static int maximumCount(int[] nums) {
+        int start = 0;
+        int end = nums.length - 1;
+        while (start < end){
+            int mid = start + (end - start)/2;
+            if(nums[mid] < 0){
+                start = mid + 1;
+            }else{
+                end = mid;
+            }
+        }
+
+        int result = nums.length - start;
+
+        int i = start;
+        while (i < nums.length && nums[i] == 0){
+            result--;
+            i++;
+        }
+        return Math.max(start, result);
+    }
