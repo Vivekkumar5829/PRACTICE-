@@ -533,3 +533,31 @@
         }
         return result;
     }
+
+
+ // 27. 1337. The K Weakest Rows in a Matrix.
+    public static int[] kWeakestRows(int[][] mat, int k) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < mat.length; i++){
+            int count = 0;
+            for(int j = 0; j < mat[i].length; j++){
+                if(mat[i][j] == 1){
+                    count++;
+                }
+            }
+            map.put(i,count);
+        }
+
+        List<Integer> lst = new ArrayList<>(map.keySet());
+
+
+        Collections.sort(lst, (a,b) -> map.get(a) - map.get(b));
+
+        int[] result = new int[k];
+
+        for(int i = 0; i < k; i++){
+            result[i] = lst.get(i);
+        }
+        return result;
+    }
