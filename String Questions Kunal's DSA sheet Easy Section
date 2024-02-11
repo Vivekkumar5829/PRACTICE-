@@ -487,3 +487,17 @@
 
         return str.indexOf(goal) != -1;
     }
+
+
+    // 2011. Final Value of Variable After Performing Operations.
+    public static int finalValueAfterOperations(String[] operations) {
+        int result = 0;
+        for(String oper : operations) {
+            result = switch (oper) {
+                case "--X", "X--" -> result - 1;
+                case "X++", "++X" -> result + 1;
+                default -> result;
+            };
+        }
+        return result;
+    }
