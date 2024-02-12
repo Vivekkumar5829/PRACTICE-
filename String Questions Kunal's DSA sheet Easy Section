@@ -545,3 +545,23 @@
       }
       return max;
     }
+
+
+    // 32. 1221. Split a String in Balanced Strings.
+    public static int balancedStringSplit(String s) {
+        int rCounter = 0;
+        int lCounter = 0;
+        int counter = 0;
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == 'R'){
+                rCounter++;
+            }else {
+                lCounter++;
+            }
+
+            if(rCounter == lCounter){
+                counter++;
+            }
+        }
+        return counter;
+    }
