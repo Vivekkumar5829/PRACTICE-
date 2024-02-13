@@ -577,3 +577,23 @@
         }
         return result.toString().trim();
     }
+
+
+
+    // 1684. Count the Number of Consistent Strings.
+    public static int countConsistentStrings(String allowed, String[] words) {
+
+        int count = 0;
+
+        outerloop:
+        for(int i = 0; i < words.length; i++){
+            for(int j = 0; j < words[i].length(); j++){
+                if(!allowed.contains(String.valueOf(words[i].charAt(j)))){
+                    continue outerloop;
+                }
+            }
+            count++;
+        }
+
+        return count;
+    }
