@@ -650,3 +650,28 @@
 
         return str.toString();
     }
+
+
+// 37.  1021. Remove Outermost Parentheses.
+    public static String removeOuterParentheses(String s) {
+        int count = 0;
+        StringBuilder sb = new StringBuilder();
+        boolean add = false;
+
+        for(char c : s.toCharArray()){
+            if(c == '('){
+                count++;
+            }else if(c == ')'){
+                count--;
+            }
+            if(c == '(' && count == 2){
+                add = true;
+            }else if(c == ')' && count == 0){
+                add = false;
+            }
+            if(add){
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
