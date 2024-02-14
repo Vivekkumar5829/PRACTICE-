@@ -692,3 +692,19 @@
         }
         return asterisksCount;
     }
+
+
+
+    // 39. 1844. Replace All Digits with Characters.
+    public static String replaceDigits(String s) {
+
+        StringBuilder str = new StringBuilder(s);
+        for(int i = 1; i < s.length(); i += 2){
+            int j = str.charAt(i) - '0';
+            str.setCharAt(i, (char)(str.charAt(i - 1) + j));
+        }
+
+        return str.toString();
+
+
+    }
