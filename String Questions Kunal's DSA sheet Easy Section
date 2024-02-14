@@ -675,3 +675,20 @@
         }
         return sb.toString();
     }
+
+
+
+    // 38. 2315. Count Asterisks.
+    public static int countAsterisks(String s) {
+        int barsCount = 0;
+        int asterisksCount = 0;
+        for(char c : s.toCharArray()){
+            if(c == '|'){
+                barsCount++;
+            }
+            if(barsCount % 2 == 0 && c == '*'){
+                asterisksCount++;
+            }
+        }
+        return asterisksCount;
+    }
