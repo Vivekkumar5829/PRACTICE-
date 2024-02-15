@@ -786,7 +786,7 @@
 
 
 
-//    3019. Number of Changing Keys
+// 43.   3019. Number of Changing Keys
     public static int countKeyChanges(String s) {
         int count = 0;
           s = s.toLowerCase();
@@ -796,4 +796,20 @@
             }
         }
         return count;
+    }
+
+
+//  44.   2710. Remove Trailing Zeros From a String
+    public static String removeTrailingZeros(String num) {
+
+        int count = 0;
+        for(int i = num.length() - 1; i >= 0; i--){
+            if(num.charAt(i) == '0'){
+                count++;
+            }else{
+                break;
+            }
+        }
+
+        return num.substring(0, num.length() - count);
     }
