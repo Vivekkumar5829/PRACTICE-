@@ -742,7 +742,7 @@
 
 
 
-    // 2744. Find Maximum Number of String Pairs.
+    // 41. 2744. Find Maximum Number of String Pairs.
     public static int maximumNumberOfStringPairs(String[] words) {
       int count = 0;
 
@@ -762,4 +762,24 @@
         ans += str.charAt(0);
 
         return ans;
+    }
+
+// 42.    2418. Sort the People
+    public static String[] sortPeople(String[] names, int[] heights) {
+        HashMap<Integer , String> map = new HashMap<>();
+        for(int i = 0; i < names.length; i++){
+            map.put(heights[i],names[i]);
+        }
+        String[] result = new String[names.length];
+
+        Arrays.sort(heights);
+        int index = 0;
+        for(int i =  result.length - 1; i >= 0; i--){
+            result[i] = map.get(heights[index]);
+            index++;
+        }
+
+        return result;
+
+
     }
