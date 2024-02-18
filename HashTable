@@ -166,3 +166,21 @@
         return freq.size() == 1 ;
     }
 
+
+// 8. 1207. Unique Number of Occurrences.
+    public static boolean uniqueOccurrences(int[] arr) {
+
+        HashMap<Integer, Integer> freqTable = new HashMap<>();
+        for(int i : arr){
+            if(!freqTable.containsKey(i)){
+                freqTable.put(i, 1);
+            }else{
+                freqTable.put(i, freqTable.get(i) + 1);
+            }
+        }
+
+        HashSet<Integer> set = new HashSet<>(freqTable.values());
+
+        return freqTable.size() == set.size();
+
+    }
