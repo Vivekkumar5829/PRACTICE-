@@ -150,3 +150,19 @@
     }
 
 
+    // 7. 1941. Check if All Characters Have Equal Number of Occurrences.
+    public static boolean areOccurrencesEqual(String s) {
+
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(char ch : s.toCharArray()){
+            if(!map.containsKey(ch)){
+                map.put(ch,1);
+            }else{
+                map.put(ch,map.get(ch) + 1);
+            }
+        }
+        Set<Integer> freq = new HashSet<>(map.values());
+        
+        return freq.size() == 1 ;
+    }
+
