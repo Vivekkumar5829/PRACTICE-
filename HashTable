@@ -184,3 +184,41 @@
         return freqTable.size() == set.size();
 
     }
+
+
+    // 10. 961. N-Repeated Element in Size 2N Array.
+    public static int repeatedNTimes(int[] nums) {
+//        HashMap<Integer,Integer> freqTable = new HashMap<>();
+//        for(int i : nums){
+//            if(!freqTable.containsKey(i)){
+//                freqTable.put(i , 1);
+//            }else{
+//                freqTable.put(i, freqTable.get(i) + 1);
+//            }
+//        }
+//
+//        int n = nums.length / 2;
+//
+//
+//
+//        Set<Integer> set = freqTable.keySet();
+//        for(int i : set){
+//            if(freqTable.get(i) == n){
+//                return i;
+//            }
+//        }
+//
+//
+//        return -1;
+
+
+        HashSet<Integer> set = new HashSet<>();
+        for (int i : nums){
+            if(set.contains(i)){
+                return i;
+            }else {
+                set.add(i);
+            }
+        }
+        return -1;
+    }
