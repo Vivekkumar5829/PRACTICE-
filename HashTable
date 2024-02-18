@@ -222,3 +222,49 @@
         }
         return -1;
     }
+
+
+
+    // 10. 2404. Most Frequent Even Element.
+    public static int mostFrequentEven(int[] nums) {
+        HashMap<Integer, Integer> freqTable = new HashMap<>();
+        for(int i : nums) {
+            if (i % 2 == 0) {
+                if (!freqTable.containsKey(i)) {
+                    freqTable.put(i, 1);
+                } else {
+                    freqTable.put(i, freqTable.get(i) + 1);
+                }
+            }
+        }
+        Set<Integer> set =new HashSet<>(freqTable.values());
+        Set<Integer> set2 = freqTable.keySet();
+
+        int max = 0;
+        for(int i : set){
+            if(i > max){
+                max = i;
+            }
+        }
+        List<Integer> lst = new ArrayList<>();
+        for(int i : set2){
+            if(freqTable.get(i) == max){
+                lst.add(i);
+            }
+        }
+
+        int min = Integer.MAX_VALUE;
+        for(int i : lst){
+            if(i < min){
+                min = i;
+            }
+        }
+
+        if(min == Integer.MAX_VALUE){
+            return -1;
+        }
+
+
+
+        return min;
+    }
