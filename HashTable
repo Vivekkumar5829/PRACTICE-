@@ -124,3 +124,29 @@
 
     }
 
+
+// 6. 1748. Sum of Unique Elements.
+    public static int sumOfUnique(int[] nums) {
+        HashMap<Integer, Integer> freqTable = new HashMap<>();
+        for(int i = 0; i < nums.length; i++) {
+
+            if (!freqTable.containsKey(nums[i])) {
+                freqTable.put(nums[i], 1);
+            } else {
+                freqTable.put(nums[i], freqTable.get(nums[i]) + 1);
+            }
+        }
+
+
+        int sum = 0;
+        Set<Integer> keys = freqTable.keySet();
+        for(int i : keys){
+            if(freqTable.get(i) == 1){
+                sum += i;
+            }
+        }
+
+        return sum;
+    }
+
+
