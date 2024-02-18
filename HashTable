@@ -186,7 +186,7 @@
     }
 
 
-    // 10. 961. N-Repeated Element in Size 2N Array.
+    // 9. 961. N-Repeated Element in Size 2N Array.
     public static int repeatedNTimes(int[] nums) {
 //        HashMap<Integer,Integer> freqTable = new HashMap<>();
 //        for(int i : nums){
