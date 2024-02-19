@@ -268,3 +268,38 @@
 
         return min;
     }
+
+
+    // 11. 2363. Merge Similar Items.
+     static final  Comparator<List<Integer>> comparator = new Comparator<List<Integer>>() {
+            @Override
+            public int compare(List<Integer> o1, List<Integer> o2) {
+                return o1.get(0).compareTo(o2.get(0));
+            }
+        };
+    public static List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
+
+        HashMap<Integer, Integer> table = new HashMap<>();
+        for(int i = 0; i < items1.length; i++){
+
+                table.put(items1[i][0], items1[i][1]);
+        }
+
+        for(int i = 0; i < items2.length; i++){
+            if (!table.containsKey(items2[i][0])){
+                table.put(items2[i][0], items2[i][1]);
+            }else {
+                table.put(items2[i][0],table.get(items2[i][0]) + items2[i][1]);
+            }
+        }
+
+        List<List<Integer>> lst = new ArrayList<>();
+
+        for(Map.Entry<Integer, Integer> i : table.entrySet()){
+            lst.add(Arrays.asList(i.getKey(), i.getValue()));
+        }
+
+//        System.out.println(lst);
+        Collections.sort(lst, comparator);
+        return lst;
+    }
