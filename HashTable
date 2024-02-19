@@ -340,3 +340,22 @@
         }
         return new int[]{pairs,single};
     }
+
+
+    // 13 2716. Minimize String Length.
+    public static int minimizedStringLength(String s) {
+//        HashMap<Character, Integer> map = new HashMap<>();
+//        for(Character ch : s.toCharArray()){
+//            map.put(ch,1);
+//        }
+
+//        System.out.println(map);
+//        return map.size();
+
+        Set<Character> set =  new HashSet<>();
+        for(char ch : s.toCharArray()){
+            set.add(ch);
+        }
+
+        return set.size();
+    }
