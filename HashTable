@@ -303,3 +303,22 @@
         Collections.sort(lst, comparator);
         return lst;
     }
+
+
+
+    // 12. 2341. Maximum Number of Pairs in Array.
+    public static int[] numberOfPairs(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i : nums){
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+
+        int pairs = 0;
+        int single = 0;
+
+        for(Integer i : map.values()){
+            pairs += i / 2;
+            single += i % 2;
+        }
+        return new int[]{pairs,single};
+    }
