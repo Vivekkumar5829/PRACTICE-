@@ -470,3 +470,20 @@
 
 
     }
+
+
+
+/    16. 2351. First Letter to Appear Twice.
+    public static char repeatedCharacter(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(Character ch : s.toCharArray()){
+            if(!map.containsKey(ch)){
+                map.put(ch, 1);
+            }else{
+                return ch;
+
+            };
+        }
+
+        return 'A';
+    }
