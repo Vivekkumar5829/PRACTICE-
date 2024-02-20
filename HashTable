@@ -437,3 +437,36 @@
 
         
     }
+
+
+    // 15. 2965. Find Missing and Repeated Values.
+    public static int[] findMissingAndRepeatedValues(int[][] grid) {
+        int[] arr = new int[grid.length * grid[0].length];
+        int index = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                arr[index++] = grid[i][j];
+
+            }
+        }
+        Arrays.sort(arr);
+        int repeated = 0;
+        int sum = (arr.length * (arr.length + 1)) / 2;
+//        System.out.println(sum);
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == arr[i + 1]) {
+                repeated = arr[i];
+            }
+            sum -= arr[i];
+        }
+        int missing = (sum - arr[arr.length - 1] + repeated);
+
+//        System.out.println(sum - arr[arr.length - 1 ]);
+        System.out.println(missing);
+//        System.out.println(repeated);
+
+
+        return new int[]{repeated, missing};
+
+
+    }
