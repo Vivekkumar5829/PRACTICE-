@@ -359,3 +359,81 @@
 
         return set.size();
     }
+
+
+
+   // 14. 2032. Two Out of Three.
+    public static List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+
+        HashSet<Integer> set1 = new HashSet<>();
+        HashSet<Integer> set2 = new HashSet<>();
+        HashSet<Integer> set3 = new HashSet<>();
+
+//        for(int i : nums1){
+//            set1.add(i);
+//        }
+//        for (int i : nums2){
+//            set2.add(i);
+//        }
+//
+//        for(int i : nums3){
+//            set3.add(i);
+//        }
+//
+//        System.out.println(set1);
+//        System.out.println(set2);
+//        System.out.println(set3);
+//
+        HashMap<Integer, Integer> map = new HashMap<>();
+//
+//        for(int i : set1){
+//            map.put(i, map.getOrDefault(i, 0) + 1);
+//        }
+//
+//        for(int i : set2){
+//            map.put(i, map.getOrDefault(i, 0) + 1);
+//        }
+//
+//        for(int i : set3){
+//            map.put(i, map.getOrDefault(i, 0) + 1);
+//        }
+//
+//        System.out.println(map);
+
+
+
+
+        for(int i : nums1){
+            if(set1.add(i)){
+                map.put(i, map.getOrDefault(i, 0) + 1);
+            }
+        }
+        for(int i : nums2){
+            if(set2.add(i)){
+                map.put(i, map.getOrDefault(i, 0) + 1);
+            }
+        }
+        for(int i : nums3){
+            if(set3.add(i)){
+                map.put(i, map.getOrDefault(i, 0) + 1);
+            }
+        }
+
+
+
+
+        List<Integer> result = new ArrayList<>();
+
+        for(Map.Entry<Integer, Integer> i : map.entrySet()){
+            if(i.getValue() >= 2){
+                result.add(i.getKey());
+            }
+        }
+
+
+
+        return result;
+
+
+        
+    }
