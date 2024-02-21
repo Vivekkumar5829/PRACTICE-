@@ -487,3 +487,22 @@
 
         return 'A';
     }
+
+    // 17. 2206. Divide Array Into Equal Pairs.
+    public static boolean divideArray(int[] nums) {
+
+        if(nums.length % 2 != 0){
+            return false;
+        }
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i : nums){
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+
+        for(Map.Entry<Integer, Integer> in : map.entrySet()){
+            if(in.getValue() % 2 != 0){
+                return false;
+            }
+        }
+        return true;
+    }
