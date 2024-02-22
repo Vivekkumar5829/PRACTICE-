@@ -548,3 +548,24 @@
 
         return str.length - count;
     }
+
+
+
+// 21. 2283. Check if Number Has Equal Digit Count and Digit Value.
+    public static boolean digitCount(String num) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(char ch : num.toCharArray()){
+            int i = ch - '0';
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        System.out.println(map);
+
+        for(int i = 0; i < num.length(); i++){
+            int n = num.charAt(i) - '0';
+            if(n !=(map.getOrDefault(i, 0))){
+                return false;
+            }
+        }
+
+        return true;
+    }
