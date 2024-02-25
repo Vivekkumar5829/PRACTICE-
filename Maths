@@ -12,3 +12,20 @@
         }
         return product - sum;
     }
+
+
+    // 2. 2160. Minimum Sum of Four Digit Number After Splitting Digits.
+    public static int minimumSum(int num) {
+        int[] split = new int[4];
+        for(int i = 0; i < 4; i++){
+            split[i] = num % 10;
+            num /= 10;
+        }
+        Arrays.sort(split);
+//        System.out.println(Arrays.toString(split));
+        int num1 = split[0] * 10 + split[2];
+        int num2 = split[1] * 10 + split[3];
+
+
+        return num1 + num2;
+    }
