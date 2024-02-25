@@ -44,3 +44,18 @@
         }
         return matches;
     }
+
+
+    // 4. 2520. Count the Digits That Divide a Number.
+    public static int countDigits(int num) {
+        int ans = 0;
+        int temp = num;
+        while (temp > 0){
+            int lastDigit = temp % 10;
+            if(num % lastDigit == 0){
+                ans++;
+            }
+            temp /= 10;
+        }
+        return ans;
+    }
