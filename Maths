@@ -59,3 +59,29 @@
         }
         return ans;
     }
+
+
+    // 5. 2535. Difference Between Element Sum and Digit Sum of an Array.
+    public static int differenceOfSum(int[] nums) {
+        int sum1 = 0;
+        int sum2 = 0;
+
+        for(int i = 0; i < nums.length; i++){
+            sum1 += nums[i];
+
+            if(nums[i] > 9) {
+                while (nums[i] > 0) {
+                    int remainder = nums[i] % 10;
+                    sum2 += remainder;
+                    nums[i] /= 10;
+
+                }
+            }else{
+                sum2 += nums[i];
+            }
+        }
+
+
+        return Math.abs(sum1 - sum2);
+
+    }
