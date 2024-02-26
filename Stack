@@ -373,3 +373,38 @@ class Solution {
         return nums1;
     }
 
+
+
+    // 9. 1700. Number of Students Unable to Eat Lunch.
+    public static int countStudents(int[] students, int[] sandwiches) {
+        Deque<Integer> que = new LinkedList<>();
+        for(int i : students){
+            que.add(i);
+        }
+
+        Stack<Integer> stk = new Stack<>();
+        for(int i = sandwiches.length -  1; i >= 0; i--){
+            stk.push(sandwiches[i]);
+        }
+        int count = 0;
+        int eaten = 0;
+
+        while (!stk.isEmpty()){
+            if(Objects.equals(stk.peek(), que.peek())){
+                eaten++;
+                stk.pop();
+                que.poll();
+            }else{
+                count++;
+                int temp = que.peekFirst();
+                que.pollFirst();
+                que.add(temp);
+            }
+            if(count == que.size()){
+                break;
+            }
+        }
+        return students.length - eaten;
+
+    }
+
