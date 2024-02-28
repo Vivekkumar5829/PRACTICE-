@@ -449,3 +449,18 @@ class Solution {
         return result;
      }
 
+// 12. 2696. Minimum String Length After Removing Substrings.
+     public static int minLength(String s) {
+        Stack<Character> stk = new Stack<>();
+        for(int i = s.length() - 1; i >= 0; i--){
+            if(!stk.isEmpty()  && s.charAt(i) == 'C' && stk.peek() == 'D' ){
+                stk.pop();
+            }else if(!stk.isEmpty() && s.charAt(i) == 'A' && stk.peek() == 'B'){
+                stk.pop();
+            }else{
+                stk.push(s.charAt(i));
+            }
+        }
+
+        return stk.size();
+     }
