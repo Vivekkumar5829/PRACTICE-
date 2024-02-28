@@ -175,9 +175,7 @@ class Solution {
         return result.reversed().toArray();
     }
 
-
-
-    // 2. Next Greater Element to the left.
+ // 2. Next Greater Element to the left.
     public static Object[] nextGreaterToLeft(int[] nums){
         Stack<Integer> stk = new Stack<>();
         List<Integer> lst = new ArrayList<>();
@@ -429,7 +427,7 @@ class Solution {
     }
 
 
-// 11. stock span problem.
+// 11. 6 stock span problem.
      public static int[] stockSpan(int [] prices){
         Stack<Integer> stk = new Stack<>();
         int[] result = new int[prices.length];
