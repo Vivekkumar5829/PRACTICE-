@@ -519,4 +519,63 @@ class Solution {
      }
 
 
+// 15. Max Area Histogram.
+    public static int[] histogram(int[] arr){
+        int[] right = nearestSmallerToRight(arr);
+        int[] left = nearestSmallerToLeft(arr);
+        int[] width = new int[arr.length];
+        
+        int max = Integer.MIN_VALUE;
+        
+        for(int i = 0; i < arr.length; i++){
+            width[i] = (right[i] - left[i] - 1) * arr[i];
+            if(width[i] > max){
+                max = width[i];
+            }
+
+        }
+//        System.out.println(max);
+//        System.out.println(Arrays.toString(right));
+//        System.out.println(Arrays.toString(left));
+        return width;
+    }
+    public static int[] nearestSmallerToRight(int [] arr){
+        Stack<Integer> stk = new Stack<>();
+        int[] right = new int[arr.length];
+
+        for(int i = arr.length - 1; i >= 0; i--){
+            while (!stk.isEmpty() && arr[stk.peek()] > arr[i]){
+                stk.pop();
+            }
+            if(stk.isEmpty()){
+                right[i] = arr.length;
+            }else {
+                right[i] = stk.peek();
+            }
+
+            stk.push(i);
+        }
+
+        return right;
+    }
+    public static int[] nearestSmallerToLeft(int[] arr){
+        Stack<Integer> stk = new Stack<>();
+        int[] left = new int[arr.length];
+
+        for(int i = 0; i < arr.length; i++){
+            while (!stk.isEmpty() && arr[stk.peek()] > arr[i]){
+                stk.pop();
+            }
+            if(stk.isEmpty()){
+                left[i] = -1;
+            }else {
+                left[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        return left;
+
+    }
+
+
 
