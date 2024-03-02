@@ -140,3 +140,40 @@
         }
         return -1;
     }
+
+
+    // 9. 2119. A Number After a Double Reversal.
+    public static boolean isSameAfterReversals(int num) {
+//        int reversed1 = 0;
+//        int num1 = num;
+//        while (num1 > 0){
+//            int remainder = num1 % 10;
+//            reversed1 = reversed1 * 10 + remainder;
+//            num1 = num1 / 10;
+//        }
+//        System.out.println(reversed1);
+//
+//        int reversed2 = 0;
+//        while (reversed1 > 0){
+//            int remainder = reversed1 % 10;
+//            reversed2 = reversed2 * 10 + remainder;
+//            reversed1 /= 10;
+//        }
+//
+//        System.out.println(reversed2);
+//        return num == reversed2;
+
+
+        int num1 = num;
+        int reverse1 = 0;
+        while (num1 > 0){
+            int remainder = num1 % 10;
+            reverse1 = reverse1 * 10 + remainder;
+            num1 /= 10;
+        }
+
+        String str1 = String.valueOf(num);
+        String str2 = String.valueOf(reverse1);
+
+        return str1.length() == str2.length();
+    }
