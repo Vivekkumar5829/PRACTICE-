@@ -177,3 +177,34 @@
 
         return str1.length() == str2.length();
     }
+
+
+// 10. 2427. Number of Common Factors.
+    public static int commonFactors(int a, int b) {
+
+//        List<Integer> lst = new ArrayList<>();
+//        int min = Math.min(a, b);
+//        for(int i = 1; i <= min; i++) {
+//            if (a % i == 0) {
+//                lst.add(i);
+//            }
+//        }
+//
+////        System.out.println(lst);
+//        int count = 0;
+//
+//        for(int i = 1; i <= min; i++){
+//            if(lst.contains(i) && b % i == 0){
+//                count++;
+//            }
+//        }
+//        return count;
+        int count = 0;
+        int min = Math.min(a, b);
+        for(int i = 1; i <= min; i++){
+            if(a % i == 0 && b % i == 0){
+                count++;
+            }
+        }
+        return count;
+    }
