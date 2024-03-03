@@ -217,4 +217,33 @@
     }
 
 
+    // 12. 728. Self Dividing Numbers.
+    public static List<Integer> selfDividingNumbers(int left, int right) {
+
+        List<Integer> lst = new ArrayList<>();
+        for(int i = left; i <= right; i++){
+            if(selfDivisble(i)){
+                lst.add(i);
+            }
+        }
+        return lst;
+    }
+
+    public static boolean selfDivisble(int i){
+        int n = i;
+
+        while (n > 0){
+            int remainder = n % 10;
+            n = n / 10;
+            if(remainder == 0){
+                return false;
+            }
+            if(i % remainder != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 
