@@ -208,3 +208,13 @@
         }
         return count;
     }
+
+
+// 11. 2651. Calculate Delayed Arrival Time.
+    public static int findDelayedArrivalTime(int arrivalTime, int delayedTime) {
+        int totaltime = arrivalTime + delayedTime;
+        return  totaltime % 24;
+    }
+
+
+
