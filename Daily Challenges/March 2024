@@ -1,4 +1,4 @@
-01 == // 1. 2864. Maximum Odd Binary Number.
+01 == // 2864. Maximum Odd Binary Number.
     public static String maximumOddBinaryNumber(String s) {
         int count = 0;
         for(char ch : s.toCharArray()){
@@ -23,3 +23,46 @@
 
         return sb.toString();
     }
+
+02 == // 
+
+03 == // 19. Remove Nth Node From End of List 
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+       int size = countTheLength(head);
+        int rem = size - n - 1;
+       if(rem == -1){
+           return head.next;
+       }
+       ListNode temp = head;
+       for(int i = 0; i < rem; i++){
+           temp = temp.next;
+       }
+       temp.next = temp.next.next;
+
+       return head;
+    }
+
+    public  int countTheLength(ListNode head){
+        int count = 0;
+        if(head == null){
+            return count;
+        }
+        ListNode currentNode = head;
+        while(currentNode != null){
+            count++;
+            currentNode = currentNode.next;
+            }
+        return count;
+    }
+}
