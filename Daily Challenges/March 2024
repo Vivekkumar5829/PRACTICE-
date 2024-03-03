@@ -24,7 +24,16 @@
         return sb.toString();
     }
 
-02 == // 
+02 == // 977. Squares of a Sorted Array.
+public static int[] sortedSquares(int[] nums) {
+    int[] result = new int[nums.length];
+        for(int i = 0; i < nums.length; i++){
+            result[i] = nums[i] * nums[i];
+        }
+        Arrays.sort(result);
+        return result;
+    }
+
 
 03 == // 19. Remove Nth Node From End of List 
 /**
