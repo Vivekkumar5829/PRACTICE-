@@ -101,3 +101,23 @@ public int bagOfTokensScore(int[] tokens, int power) {
 
         return maxi;
     }
+
+05 == 1750. Minimum Length of String After Deleting Similar Ends.
+    public static int minimumLength(String s) {
+
+        int start = 0;
+        int end = s.length() - 1;
+        while (start < end && s.charAt(start) == s.charAt(end)){
+            char present = s.charAt(start);
+
+            while (start <= end && s.charAt(start) == present){
+                start++;
+            }
+            while (start <= end && s.charAt(end) == present){
+                end--;
+            }
+        }
+
+
+        return (end - start + 1);
+    }
