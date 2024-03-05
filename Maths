@@ -279,3 +279,23 @@
     }
 
 
+
+    // 15. 1716. Calculate Money in Leetcode Bank.
+    public static int totalMoney(int n) {
+        int totalMoney = 0;
+        int increment = 1;
+        int after7thDay = 2;
+        for(int i = 1; i <= n; i++){
+            totalMoney += increment;
+            increment++;
+            if(i % 7 == 0){
+                increment = after7thDay;
+                after7thDay++;
+            }
+        }
+
+        return totalMoney;
+
+    }
+
+
