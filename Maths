@@ -314,3 +314,28 @@
     }
 
 
+//    17.2180. Count Integers With Even Digit Sum.
+    public static int countEven(int num) {
+        int result = 0;
+
+        for(int i = 1; i <= num; i++){
+            if(isSumEven(i)){
+                result++;
+            }
+        }
+        return result;
+
+    }
+    public static boolean isSumEven(int i){
+        int sum = 0;
+        while (i > 0){
+            sum += i % 10;
+            i /= 10;
+        }
+        if(sum % 2 == 0){
+            return true;
+        }
+        return false;
+    }
+
+
