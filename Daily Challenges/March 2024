@@ -150,3 +150,30 @@ public ListNode middleNode(ListNode head) {
         }
         return slow;
     }
+
+
+08 == 3005. Count Elements With Maximum Frequency
+public int maxFrequencyElements(int[] nums) {
+         HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i : nums){
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+
+        int max = Integer.MIN_VALUE;
+
+        for(int i : map.values()){
+            if(i > max){
+                max = i;
+            }
+        }
+
+        int result = 0;
+
+        for(int i : map.keySet()){
+            if(map.get(i) == max){
+                result += map.get(i);
+            }
+        }
+        
+        return result;
+    }
