@@ -339,3 +339,19 @@
     }
 
 
+    // 18. 1925. Count Square Sum Triples.
+    public static int countTriples(int n) {
+        int count = 0;
+        for (int i = 1; i <= n; i++){
+            for(int j = 1; j <= n; j++){
+                double sqrt = Math.pow(i,2) + Math.pow(j,2);
+                int k = (int) Math.sqrt(sqrt);
+                if(k <= n && k * k == sqrt){
+                    count++;
+                }
+
+            }
+        }
+        return count;
+    }
+
