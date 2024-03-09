@@ -177,3 +177,37 @@ public int maxFrequencyElements(int[] nums) {
         
         return result;
     }
+
+
+09 ==  2540. Minimum Common Value.
+    public int getCommon(int[] nums1, int[] nums2) {
+        int matched = 0;
+        for(int i = 0; i < nums1.length; i++){
+            matched = isEqual(nums1[i], nums2);
+
+            if(matched != -1){
+                break;
+            }
+        }
+        return matched;
+    }
+
+    private static int isEqual(int target, int[] nums2) {
+        int start = 0;
+        int end = nums2.length - 1;
+        int minResult = -1;
+
+        while (start <= end){
+            int mid = start + (end - start)/2;
+
+            if(nums2[mid] == target){
+                minResult = nums2[mid];
+                return minResult;
+            } else if (nums2[mid] > target) {
+                end = mid - 1;
+            }else{
+                start = mid + 1;
+            }
+        }
+        return minResult;
+    }
