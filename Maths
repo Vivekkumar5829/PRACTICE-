@@ -355,3 +355,19 @@
         return count;
     }
 
+ // 19. 2544. Alternating Digit Sum.
+    public static int alternateDigitSum(int n) {
+
+        String str = String.valueOf(n);
+        int flag = 1;
+
+        int sum = 0;
+        for(char ch : str.toCharArray()){
+            sum += flag * Character.getNumericValue(ch);
+            flag *= -1;
+        }
+
+
+
+        return sum;
+    }
