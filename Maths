@@ -456,3 +456,22 @@
                 return (max_val-k) - (min_val+k);
             }
         }
+
+
+
+    // 23. 412. Fizz Buzz.
+    public static List<String> fizzBuzz(int n) {
+        List<String> result = new ArrayList<>();
+        for(int i = 1; i <= n; i++){
+            if(i % 3 == 0 && i % 5 == 0){
+                result.add("fizzbuzz");
+            }else if(i % 5 == 0){
+                result.add("buzz");
+            } else if (i % 3 == 0  ) {
+                result.add("fizz");
+            }else {
+                result.add(String.valueOf(i));
+            }
+        }
+        return result;
+    }
