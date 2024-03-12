@@ -475,3 +475,29 @@
         }
         return result;
     }
+
+
+    // 24. 1742. Maximum Number of Balls in a Box.
+    public static int countBalls(int lowLimit, int highLimit) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = lowLimit; i <= highLimit; i++){
+            map.put(sum(i), map.getOrDefault(sum(i), 0) + 1);
+        }
+
+        int max = 0;
+        for(int i : map.keySet()){
+            if(map.get(i) > max){
+                max = map.get(i);
+            }
+        }
+        return max;
+    }
+
+    public static int sum(int n){
+        int sum = 0;
+        while (n > 0){
+            sum += n % 10;
+            n = n / 10;
+        }
+        return sum;
+    }
