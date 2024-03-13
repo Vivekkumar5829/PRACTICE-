@@ -235,7 +235,7 @@ public int maxFrequencyElements(int[] nums) {
     }
 
 
- // 11. 791. Custom Sort String
+ // 11 == 791. Custom Sort String
     public String customSortString(String order, String s) {
         StringBuilder result = new StringBuilder();
         HashMap<Character, Integer> mp = new HashMap<>();
@@ -255,7 +255,7 @@ public int maxFrequencyElements(int[] nums) {
     }
 
 
-1171. Remove Zero Sum Consecutive Nodes from Linked List.
+// 12 == 1171. Remove Zero Sum Consecutive Nodes from Linked List.
  public static ListNode removeZeroSumSublists(ListNode head) {
                 int prefixSum = 0;
         Map<Integer, ListNode> sumNodeMp = new HashMap<>();
@@ -280,3 +280,5 @@ public int maxFrequencyElements(int[] nums) {
         }
         return dummyHead.next;
     }
+
+
