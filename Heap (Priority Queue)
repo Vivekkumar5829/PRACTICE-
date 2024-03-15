@@ -1,0 +1,14 @@
+    // 1. Kth smallest element.
+    public static int kthSmallest(int[] num, int k){
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b) -> b - a);
+        for (int j : num) {
+            maxHeap.offer(j);
+
+            if (maxHeap.size() > k) {
+                maxHeap.poll();
+            }
+        }
+
+        return maxHeap.peek();
+
+    }
