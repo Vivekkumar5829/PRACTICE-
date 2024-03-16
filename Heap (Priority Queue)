@@ -32,3 +32,21 @@
 
         return result;
     }
+
+
+ // 3. Sort a K sorted Array or Nearly Sorted Array.
+    public static int[] kSorted(int[] arr, int k){
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        int[] result = new int[arr.length];
+        int index = 0;
+        for(int i = 0; i < arr.length; i++){
+            minHeap.offer(arr[i]);
+            if(minHeap.size() > k){
+                result[index++] = minHeap.poll();
+            }
+        }
+        while (!minHeap.isEmpty()){
+            result[index++] = minHeap.poll();
+        }
+        return result;
+    }
