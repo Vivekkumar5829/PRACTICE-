@@ -140,3 +140,45 @@ public static List<Integer> kClosest(int[] arr, int k, int x) {
         Arrays.sort(result);
         return result;
     }
+
+
+ // 6. 692. Top K Frequent Words
+    static class Pair{
+        String str;
+        int freq;
+        Pair(String str, int freq){
+            this.str = str;
+            this.freq = freq;
+        }
+    }
+
+    public static List<String> topKFrequent(String[] words, int k) {
+        HashMap<String, Integer> map = new HashMap<>();
+        for(String str : words){
+            map.put(str, map.getOrDefault(str, 0) + 1);
+        }
+
+        System.out.println(map);
+        PriorityQueue<Pair> minHeap = new PriorityQueue<>(new Comparator<Pair>() {
+            @Override
+            public int compare(Pair a, Pair b) {
+               if(a.freq == b.freq){
+                   return a.str.compareTo(b.str);
+               }
+               return b.freq - a.freq;
+            }
+        });
+
+        for (Map.Entry<String , Integer> entry : map.entrySet()){
+            minHeap.offer(new Pair(entry.getKey(), entry.getValue()));
+
+        }
+        List<String> result = new ArrayList<>();
+        while (!minHeap.isEmpty() && k > 0){
+            result.add(minHeap.remove().str);
+            k--;
+        }
+
+
+        return result;
+    }
