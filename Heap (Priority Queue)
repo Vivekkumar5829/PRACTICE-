@@ -50,3 +50,41 @@
         }
         return result;
     }
+
+
+// 4. K the closest Number or 658. Find K Closest Elements.
+      static class  Pair {
+        int diff, val;
+
+        public Pair(int diff, int val) {
+            this.diff = diff;
+            this.val = val;
+        }
+    }
+        public static List<Integer> kClosest(int[] arr, int k, int x) {
+
+            List<Integer> result = new ArrayList<>();
+
+            PriorityQueue<Pair> pq = new PriorityQueue<>(new Comparator<Pair>() {
+                public int compare(Pair p1, Pair p2) {
+                    if (p2.diff == p1.diff) return p2.val - p1.val;
+                    return p2.diff - p1.diff;
+                }
+            });
+
+            for(int i = 0; i < arr.length; i++){
+                pq.add(new Pair(Math.abs(arr[i] - x) , arr[i]));
+                if(pq.size() > k){
+                    pq.poll();
+                }
+            }
+
+            while (!pq.isEmpty()){
+                result.add(pq.poll().val);
+            }
+
+
+            Collections.sort(result);
+            return result;
+
+        }
