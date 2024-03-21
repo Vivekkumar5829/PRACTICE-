@@ -291,3 +291,23 @@ public static List<Integer> kClosest(int[] arr, int k, int x) {
 
         return maxGifts;
     }
+
+
+
+    // 11. 1046. Last Stone Weight.
+    public static int lastStoneWeight(int[] stones) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b) -> b - a);
+        for(int i : stones){
+            maxHeap.add(i);
+        }
+        while (maxHeap.size() > 1){
+            int firstStone = maxHeap.poll();
+            int secondStone = maxHeap.poll();
+
+            if(firstStone != secondStone){
+                int val = Math.abs(secondStone - firstStone);
+                maxHeap.add(val);
+            }
+        }
+        return maxHeap.poll();
+    }
