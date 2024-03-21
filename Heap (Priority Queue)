@@ -243,3 +243,28 @@ public static List<Integer> kClosest(int[] arr, int k, int x) {
 
         return sb.toString();
     }
+
+
+    // 9. 2974. Minimum Number Game.
+    public static int[] numberGame(int[] nums) {
+       PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+       for(int i : nums){
+           minHeap.add(i);
+       }
+
+       int[] result = new int[nums.length];
+       int index = 0;
+       while (minHeap.size() >= 2){
+           int alice = minHeap.poll();
+           int bob = minHeap.poll();
+
+           result[index++] = bob;
+           result[index++] = alice;
+       }
+
+       while (!minHeap.isEmpty()){
+           result[index++] = minHeap.poll();
+       }
+
+       return result;
+    }
