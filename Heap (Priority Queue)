@@ -182,3 +182,33 @@ public static List<Integer> kClosest(int[] arr, int k, int x) {
 
         return result;
     }
+
+// 7. Frequency Sort.
+    public static int[] frequencySort(int[] arr){
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i : arr){
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap =
+                new PriorityQueue<>((a,b) -> (b.getValue() - a.getValue()));
+        System.out.println(map);
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()){
+            maxHeap.add(entry);
+        }
+
+        int[] result = new int[arr.length];
+        int index = 0;
+
+        while (!maxHeap.isEmpty()){
+            int val = maxHeap.peek().getKey();
+            int freq = maxHeap.peek().getValue();
+
+            while (freq > 0){
+                result[index++] = val;
+                freq--;
+            }
+            maxHeap.poll();
+
+        }
+        return result;
+    }
