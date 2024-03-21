@@ -268,3 +268,26 @@ public static List<Integer> kClosest(int[] arr, int k, int x) {
 
        return result;
     }
+
+
+// 10. 2558. Take Gifts From the Richest Pile.
+    public static long pickGifts(int[] gifts, int k) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b) -> b - a);
+
+        for(int i : gifts){
+            maxHeap.offer(i);
+        }
+        for(int i = 0; i < k; i++) {
+            if(!maxHeap.isEmpty()) {
+                int val = (int) Math.sqrt(maxHeap.poll());
+                maxHeap.offer(val);
+            }
+        }
+
+        long maxGifts = 0;
+        for(int i : maxHeap){
+            maxGifts += i;
+        }
+
+        return maxGifts;
+    }
