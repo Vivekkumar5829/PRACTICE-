@@ -212,3 +212,34 @@ public static List<Integer> kClosest(int[] arr, int k, int x) {
         }
         return result;
     }
+
+
+
+    // 8. 451. Sort Characters By Frequency.
+    public static String frequencySort(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(char ch : s.toCharArray()){
+            map.put(ch, map.getOrDefault(ch , 0) + 1);
+        }
+
+        PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<>((a, b) -> (b.getValue() - a.getValue()));
+
+        for(Map.Entry<Character,Integer> entry : map.entrySet()){
+            maxHeap.add(entry);
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        while (!maxHeap.isEmpty()){
+            Character ch = maxHeap.peek().getKey();
+            int freq = maxHeap.peek().getValue();
+
+            while (freq > 0){
+                sb.append(ch);
+                freq--;
+            }
+            maxHeap.poll();
+        }
+
+        return sb.toString();
+    }
