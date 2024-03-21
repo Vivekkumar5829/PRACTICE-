@@ -421,3 +421,23 @@ public int numSubarraysWithSum(int[] nums, int goal) {
 
         return idle < 0 ? tasks.length : tasks.length + idle;
     }
+
+
+    // 21 == 206. Reverse Linked List.
+//    public ListNode reverseList(ListNode head) {
+//        if(head == null){
+//            return head;
+//        }
+//        ListNode prev = null;
+//        ListNode present = head;
+//        ListNode next = present.next;
+//        while (present != null){
+//            present.next = prev;
+//            prev = present;
+//            present = next;
+//            if(next != null){
+//                next = next.next;
+//            }
+//        }
+//        return prev;
+//    }
