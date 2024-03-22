@@ -434,3 +434,45 @@ public static List<Integer> kClosest(int[] arr, int k, int x) {
             return minHeap.peek();
         }
     }
+
+
+    // 16. 2099. Find Subsequence of Length K With the Largest Sum.
+    public static int[] maxSubsequence(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < nums.length; i++){
+            map.put(i, nums[i]);
+        }
+
+        PriorityQueue<Map.Entry<Integer, Integer>> minHeap =
+                new PriorityQueue<>((a,b) -> Integer.compare(a.getValue(), b.getValue()));
+
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            minHeap.add(entry);
+            if(minHeap.size() > k){
+                minHeap.poll();
+            }
+        }
+        System.out.println(minHeap);
+
+        ArrayList<Integer> index = new ArrayList<>();
+        int sum = 0;
+        while (!minHeap.isEmpty()){
+            index.add(minHeap.peek().getKey());
+            sum += minHeap.poll().getValue();
+
+        }
+//        System.out.println(index);
+//        System.out.println(sum);
+
+        int[] result = new int[index.size()];
+        int postion = 0;
+        for (int i = 0; i < nums.length; i++){
+            if(index.contains(i)){
+                result[postion++] = nums[i];
+            }
+        }
+
+//        System.out.println(Arrays.toString(result));
+
+        return result;
+    }
