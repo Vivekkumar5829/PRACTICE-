@@ -386,3 +386,27 @@ public static List<Integer> kClosest(int[] arr, int k, int x) {
         }
         return  Integer.parseInt(sb.toString());
     }
+
+
+
+    // 14. 2335. Minimum Amount of Time to Fill Cups.
+    public static int fillCups(int[] amount) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b) -> b - a);
+        for(int i : amount) {
+                maxHeap.add(i);
+        }
+        int seconds = 0;
+        while (maxHeap.peek() > 0){
+            int first = maxHeap.poll();
+            int second = maxHeap.poll();
+
+            first--;
+            second--;
+
+            maxHeap.add(first);
+            maxHeap.add(second);
+            seconds++;
+
+        }
+        return seconds;
+    }
