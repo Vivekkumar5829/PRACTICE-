@@ -356,3 +356,33 @@ public static List<Integer> kClosest(int[] arr, int k, int x) {
 
         return str;
     }
+
+
+// 13. 2231. Largest Number After Digit Swaps by Parity.
+    public static int largestInteger(int num) {
+        PriorityQueue<Integer> even = new PriorityQueue<>((a,b) -> b - a);
+        PriorityQueue<Integer> odd = new PriorityQueue<>((a,b) -> b - a);
+
+        String s = "" + num;
+        while (num > 0){
+            int remainder = num % 10;
+            if(remainder % 2 == 0){
+                even.add(remainder);
+            }else{
+                odd.add(remainder);
+            }
+            num /= 10;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for(char ch : s.toCharArray()){
+            int pos = Character.getNumericValue(ch);
+            if(pos % 2 == 0){
+                sb.append(even.remove());
+            }else{
+                sb.append(odd.remove());
+            }
+
+        }
+        return  Integer.parseInt(sb.toString());
+    }
