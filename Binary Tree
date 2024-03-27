@@ -283,3 +283,26 @@
         return sum;
 
     }
+
+
+    // 2. 1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree.
+    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+        Stack<TreeNode> stk = new Stack<>();
+        stk.push(cloned);
+        TreeNode ans = target;
+
+        while (!stk.isEmpty()){
+            TreeNode current = stk.pop();
+            if(current.val == target.val){
+                ans = current;
+            }
+            if(current.left != null){
+                stk.push(current.left);
+            }
+            if(current.right != null){
+                stk.push(current.right);
+            }
+        }
+
+        return ans;
+    }
