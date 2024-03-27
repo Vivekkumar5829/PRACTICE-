@@ -251,3 +251,35 @@
         }
         return true;
     }
+
+
+
+
+// 27/03
+// 1. 938. Range Sum of BST.
+    public static int rangeSumBST(TreeNode root, int low, int high) {
+
+        if(root == null){
+            return 0;
+        }
+
+        Stack<TreeNode> stk = new Stack<>();
+        stk.push(root);
+
+        int sum = 0;
+        while (!stk.isEmpty()){
+            TreeNode current = stk.pop();
+            if(current.val >= low && current.val <= high){
+                sum += current.val;
+            }
+
+            if(current.left != null){
+                stk.push(current.left);
+            }
+            if(current.right != null){
+                stk.push(current.right);
+            }
+        }
+        return sum;
+
+    }
