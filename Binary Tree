@@ -323,3 +323,24 @@
 
         return root1;
     }
+
+
+
+    // 4. 897. Increasing Order Search Tree.
+    TreeNode dummy = new TreeNode();
+    TreeNode dummyRoot = dummy;
+
+    public TreeNode increasingBST(TreeNode root) {
+        inOrder(root);
+        return dummyRoot.right;
+    }
+
+    void inOrder(TreeNode node){
+        if(node == null){
+            return;
+        }
+        inOrder(node.left);
+        dummy.right = new TreeNode(node.val);
+        dummy = dummy.right;
+        inOrder(node.right);
+    }
