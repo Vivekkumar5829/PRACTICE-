@@ -344,3 +344,20 @@
         dummy = dummy.right;
         inOrder(node.right);
     }
+
+    // 5. 590. N-ary Tree Postorder Traversal.
+//    public List<Integer> postorder(Node root) {
+//        ArrayList<Integer> List = new ArrayList<>();
+//        return helper(root, List);
+//    }
+//    public List<Integer> helper(Node root , ArrayList<Integer> List){
+//        if(root == null){
+//            return List;
+//        }
+//        for(Node child : root.children){
+//            helper(child, List);
+//        }
+//        List.add(root.val);
+//
+//        return List;
+//    }
