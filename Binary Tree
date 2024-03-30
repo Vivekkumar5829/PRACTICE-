@@ -411,3 +411,20 @@ private void helper(Node root, ArrayList<Integer> result){
 
         return result;
     }
+
+// 9.  226. Invert Binary Tree.
+public TreeNode invertTree(TreeNode root) {
+        if(root == null){
+            return null;
+        }
+
+        TreeNode left = invertTree(root.left);
+        TreeNode right = invertTree(root.right);
+
+        root.left = right;
+        root.right = left;
+
+        return root;
+    
+
+    }
