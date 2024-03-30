@@ -379,3 +379,15 @@
 
         return evaluateTree(root.left) && evaluateTree(root.right);
     }
+
+// 7. 94. Binary Tree Inorder Traversal.
+List<Integer> result = new ArrayList<Integer>();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        if(root == null){
+            return result;
+        }
+         inorderTraversal(root.left);
+        result.add(root.val);
+        inorderTraversal(root.right);
+        return result;
+    }
