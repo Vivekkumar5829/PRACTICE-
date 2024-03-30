@@ -391,3 +391,23 @@ List<Integer> result = new ArrayList<Integer>();
         inorderTraversal(root.right);
         return result;
     }
+
+
+// 8. 589. N-ary Tree Preorder Traversal.
+private void helper(Node root, ArrayList<Integer> result){
+        result.add(root.val);
+        for(Node child : root.children){
+            if(child != null){
+                helper(child, result);
+            }
+        }
+    }
+
+    public List<Integer> preorder(Node root) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if(root != null){
+            helper(root, result);
+        }
+
+        return result;
+    }
