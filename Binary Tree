@@ -502,3 +502,20 @@ public int sumRootToLeaf(TreeNode root) {
         }
         return helper(node.left , sum) + helper(node.right , sum);
     }
+
+// 14. 965. Univalued Binary Tree.
+public boolean isUnivalTree(TreeNode root) {
+        TreeNode temp = root;
+        return helper(root, temp);
+        }
+        
+    private boolean helper(TreeNode root, TreeNode temp){
+        if(root == null){
+            return true;
+        }
+        if(root.val != temp.val){
+            return false;
+        }
+
+        return helper(root.left, temp) && helper(root.right, temp);
+    }
