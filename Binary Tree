@@ -544,3 +544,39 @@ public int islandPerimeter(int[][] grid) {
         }
         return perimeter;
     }
+
+
+// 16. 872. Leaf-Similar Trees.
+public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        ArrayList<Integer> list1 = new ArrayList<>();
+        ArrayList<Integer> list2 = new ArrayList<>();
+
+        leafNodes(root1, list1);
+        leafNodes(root2, list2);
+
+        if(list1.size() != list2.size()){
+            return false;
+        }
+        int j = 0;
+        for(int i : list1){
+            if(i != list2.get(j++)){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    private void leafNodes(TreeNode root, ArrayList<Integer> list){
+        if(root == null){
+            return;
+        }
+        if(root.left == null && root.right == null){
+            list.add(root.val);
+            return;
+        }
+
+        leafNodes(root.left, list);
+        leafNodes(root.right, list);
+
+    }
