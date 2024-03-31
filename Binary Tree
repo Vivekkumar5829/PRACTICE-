@@ -594,3 +594,26 @@ ArrayList<Integer> result = new ArrayList<Integer>();
         
         return result;
     }
+
+
+// 18. 257. Binary Tree Paths.
+public List<String> binaryTreePaths(TreeNode root) {
+        List<String> result = new ArrayList<String>();
+        if(root == null){
+            return result;
+        }
+        paths(root, "" , result);
+        return result;
+
+    }
+    private void paths(TreeNode root, String path, List<String> result){
+        if(root.left == null && root.right == null){
+            result.add(path + root.val);
+        }
+        if(root.left != null){
+            paths(root.left, path + root.val + "->", result);
+        }
+        if(root.right != null){
+            paths(root.right, path + root.val + "->", result);
+        }
+    }
