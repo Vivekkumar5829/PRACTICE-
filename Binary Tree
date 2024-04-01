@@ -667,3 +667,23 @@ int sum = 0;
         }
         return sum;
     }
+
+// 22. 543. Diameter of Binary Tree.
+int diameter = 0;
+    public int diameterOfBinaryTree(TreeNode root) {
+        dfs(root);
+        return diameter;
+    }
+    private int dfs(TreeNode root){
+        if(root == null){
+            return -1;
+        }
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+
+        diameter = Math.max(diameter, left + right + 2);
+
+        return 1 + Math.max(left , right);
+
+
+    }
