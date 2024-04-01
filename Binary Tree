@@ -710,3 +710,27 @@ List<Integer> list = new ArrayList<Integer>();
 
         return;
     }
+
+// 24. 530. Minimum Absolute Difference in BST.
+List<Integer> list = new ArrayList<>();
+    public int getMinimumDifference(TreeNode root) {
+        postOrder(root);
+        Collections.sort(list);
+        int min = Integer.MAX_VALUE;
+        for(int i = 0; i < list.size() - 1; i++){
+            min = Math.min(min, Math.abs(list.get(i) - list.get(i + 1)));
+        }
+        return min;
+    }
+    
+    private void postOrder(TreeNode root){
+        if(root == null){
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        list.add(root.val);
+
+        return;
+
+    }
