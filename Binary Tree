@@ -734,3 +734,47 @@ List<Integer> list = new ArrayList<>();
         return;
 
     }
+
+
+// 25. 501. Find Mode in Binary Search Tree.
+HashMap<Integer, Integer> map = new HashMap<>();
+    public int[] findMode(TreeNode root) {
+        dfs(root);
+        int max = Integer.MIN_VALUE;
+
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            if(entry.getValue() > max){
+                max = entry.getValue();
+
+            }
+        }
+
+        int count = 0;
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            if(entry.getValue() == max){
+                count++;
+
+            }
+        }
+
+        System.out.println(max);
+        int[] result = new int[count];
+        int i = 0;
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            if(entry.getValue() == max){
+                 result[i++] = entry.getKey();
+            }
+        }
+        return result;
+    }
+    
+    private void dfs(TreeNode root){
+        if(root == null){
+            return;
+        }
+        dfs(root.left);
+        dfs(root.right);
+        map.put(root.val,  map.getOrDefault(root.val, 0) + 1);
+
+        return;
+    }
