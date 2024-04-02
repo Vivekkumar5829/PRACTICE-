@@ -3,3 +3,28 @@ public int lengthOfLastWord(String s) {
         String[] arr = s.split(" ");
         return arr[arr.length - 1].length();
     }
+
+
+// 2 == 205. Isomorphic Strings.
+        public static boolean isIsomorphic(String s, String t) {
+            HashMap<Character,Character> map = new HashMap<>();
+            int i = 0;
+             while (i < s.length()){
+                 if(!map.containsKey(s.charAt(i))) {
+                     if(map.containsValue(t.charAt(i))){
+                         return false;
+                     }else {
+                         map.put(s.charAt(i), t.charAt(i));
+                     }
+                 }else{
+                     if(map.get(s.charAt(i)) != t.charAt(i)){
+                        return false;
+                     }
+                 }
+                 i++;
+             }
+
+             System.out.println(map);
+             return true;
+
+        }
