@@ -843,3 +843,24 @@ public int minDepth(TreeNode root) {
 
         return Math.min(leftDepth , rightDepth) + 1;
     }
+
+
+// 29. 671. Second Minimum Node In a Binary Tree.
+TreeSet<Integer> S = new TreeSet<>();
+        record(root, S);
+
+        S.pollFirst();
+        if(!S.isEmpty()){
+            return S.first();
+        }
+        return -1;
+
+    }
+    public void record(TreeNode root, Set<Integer> S){
+        if(root != null){
+            S.add(root.val);
+            record(root.left, S);
+            record(root.right, S);
+        }
+        
+    }
