@@ -71,3 +71,18 @@ public int lengthOfLastWord(String s) {
         visited[i][j] = false;
         return false;
     }
+
+// 4 == 1614. Maximum Nesting Depth of the Parentheses.
+public int maxDepth(String s) {
+        int max = 0;
+        int count = 0;
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == '('){
+                count++;
+            }else if(s.charAt(i) == ')'){
+                count--;
+            }
+            max = Math.max(max , count);
+        }
+        return max;
+    }
