@@ -86,3 +86,28 @@ public int maxDepth(String s) {
         }
         return max;
     }
+
+
+// 5 1544. Make The String Great.
+ public String makeGood(String s) {
+         Stack<Character> stk = new Stack<>();
+        for(int i = s.length() - 1; i >= 0; i--) {
+            if (!stk.isEmpty() && stk.peek()!=s.charAt(i)) {
+                String s1 = s.charAt(i) + "";
+                String s2 = stk.peek() + "";
+                if (s1.equalsIgnoreCase(s2)) {
+                    stk.pop();
+                }else{
+                    stk.push(s.charAt(i));
+                }
+            }else {
+                stk.push(s.charAt(i));
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for(char ch : stk){
+            sb.append(ch);
+        }
+
+        return sb.reverse().toString();
+    }
