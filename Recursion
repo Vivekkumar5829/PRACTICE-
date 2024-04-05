@@ -1,0 +1,9 @@
+// 1. Print till nth number.
+    public static void printN(int n){
+        if(n == 10){
+            System.out.println(n);
+            return;
+        }
+        System.out.println(n);
+        printN(n + 1);
+    }
