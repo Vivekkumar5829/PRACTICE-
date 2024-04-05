@@ -7,3 +7,15 @@
         System.out.println(n);
         printN(n + 1);
     }
+
+
+ // 2. Find the nth fibonacci Number.
+    public static int fibonacciNumber(int n){
+        if(n == 1){
+            return 1;
+        }
+        if(n == 0){
+            return 0;
+        }
+        return fibonacciNumber(n - 1) + fibonacciNumber(n - 2);
+    }
