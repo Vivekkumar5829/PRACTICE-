@@ -58,3 +58,16 @@
         both(n - 1);
         System.out.println(n);
     }
+
+
+ // 6. Factorial of a number.
+    public static int factorial(int n){
+        int product = 1;
+        if(n == 1){
+            return 1;
+        }
+
+        product = n * factorial(n - 1);
+
+        return product;
+    }
