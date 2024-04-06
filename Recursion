@@ -40,7 +40,7 @@
     }
 
 
-// 4. Print from n to 1.
+// 4. Print from 1 to n.
     public static void print(int n){
         if(n == 0){
             return;
