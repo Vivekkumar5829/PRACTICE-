@@ -48,3 +48,13 @@
         print(n - 1);
         System.out.println(n);
     }
+
+   // 5. Print from 1 to n and n to 1.
+    public static void both(int n){
+        if(n == 0){
+            return;
+        }
+        System.out.println(n);
+        both(n - 1);
+        System.out.println(n);
+    }
