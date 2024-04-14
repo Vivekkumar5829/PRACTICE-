@@ -128,6 +128,21 @@
     }
 
 
+ // 13. Count number of zeroes.
+    public static int countZeroes(int n){
+        return helper1(n, 0);
+    }
+    public static int helper1(int n, int count){
+        if(n == 0){
+            return count;
+        }
+        int remainder = n % 10;
+        if(remainder == 0){
+            return helper1(n / 10, count + 1);
+        }
+        return helper1(n / 10, count);
+    }
+
     // 12. Palindrome or not.
     public static boolean palindrome(int n){
         return n == reverseII(n);
