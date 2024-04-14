@@ -147,7 +147,17 @@
         return helper1(n / 10, count);
     }
 
-    // 12. Palindrome or not.
-    public static boolean palindrome(int n){
-        return n == reverseII(n);
+// 14. 1342. Number of Steps to Reduce a Number to Zero.
+
+    public static int numberOfSteps(int num) {
+        return helper3(num, 0);
+    }
+    public static int helper3(int num , int steps){
+        if(num == 0){
+            return steps;
+        }
+        if(num % 2 == 0){
+            return helper3(num / 2, steps + 1);
+        }
+        return helper3(num - 1, steps + 1);
     }
