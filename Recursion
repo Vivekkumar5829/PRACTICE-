@@ -126,3 +126,9 @@
 
         return  remainder * (int)(Math.pow(10, digits - 1)) + helper(n / 10 , digits - 1);
     }
+
+
+    // 12. Palindrome or not.
+    public static boolean palindrome(int n){
+        return n == reverseII(n);
+    }
