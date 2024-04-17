@@ -170,3 +170,16 @@
         }
         return arr[i] < arr[i + 1] && isSorted(arr, i + 1);
     }
+
+
+    // 16. Linear Search.
+    public static int find(int[] arr, int target, int i){
+        if(i == arr.length){
+            return -1;
+        }
+        if(arr[i] == target){
+            return i;
+        }else {
+            return find(arr, target, i + 1);
+        }
+    }
