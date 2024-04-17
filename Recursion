@@ -183,3 +183,16 @@
             return find(arr, target, i + 1);
         }
     }
+
+
+ // 17. Linear Search for multiple occurrences.
+    static ArrayList<Integer> list = new ArrayList<>();
+    public static void findAll(int[] arr, int i, int target){
+        if(i == arr.length){
+            return;
+        }
+        if(arr[i] == target){
+            list.add(i);
+        }
+        findAll(arr, i + 1, target);
+    }
