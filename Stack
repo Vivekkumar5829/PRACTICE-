@@ -621,4 +621,21 @@ class Solution {
     }
 
 
+// 17. 1614. Maximum Nesting Depth of the Parentheses.
+public static int maxDepth(String s) {
+        int result = 0;
+        Stack<Character> stk = new Stack<Character>();
+        for(char ch : s.toCharArray()){
+            if(ch == '('){
+                stk.push('(');
+            }
+            if(ch == ')'){
+                result = Math.max(result, stk.size());
+                stk.pop();
+            }
+        }
+        return result;
+    }
+
+
 
