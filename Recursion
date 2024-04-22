@@ -196,3 +196,18 @@
         }
         findAll(arr, i + 1, target);
     }
+
+// 18. Return the list without passing the argument.
+        public static ArrayList<Integer> findAllIndex(int[] arr, int target, int index){
+            ArrayList<Integer> list = new ArrayList<>();
+            if(index == arr.length){
+                return list;
+            }
+            if(arr[index] == target){
+                list.add(index);
+            }
+
+            ArrayList<Integer> ans = findAllIndex(arr,target,index + 1);
+            list.addAll(ans);
+            return list;
+        }
