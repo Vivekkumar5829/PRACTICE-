@@ -922,3 +922,24 @@
         }
         return result;
     }
+
+
+ // 11. Find ceil of an element in a Sorted Array.
+    public static int ceilElement(int[] arr, int target){
+
+        int start = 0, end = arr.length - 1, result = 0;
+
+        while (start <= end){
+            int mid = start + (end - start) / 2;
+
+            if(arr[mid] == target){
+                return mid;
+            }else if(arr[mid] < target){
+                start = mid + 1;
+            }else {
+                result = mid;
+               end = mid - 1;
+            }
+        }
+        return result;
+    }
