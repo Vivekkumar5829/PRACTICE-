@@ -988,3 +988,17 @@
         }
         return result == ' ' ? letters[0] : result;
     }
+
+
+ // 14. Find position of an element in an infinite(suppose) sorted array.
+    public static int infiniteArray(int[] arr, int target){
+        int start = 0;
+        int end = 1;
+
+        while (arr[end] < target){
+            start = end;
+            end = 2 * end;
+        }
+        return binarySearch4(arr,target,start,end);
+
+    }
