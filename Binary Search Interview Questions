@@ -1096,3 +1096,42 @@
     public static int bitonicArray(int[] arr) {
         return peakElement(arr);
     }
+
+
+
+  // 19. Search an Element in a Bitonic Array.
+    public static int searchBitonicArray(int[] arr, int target){
+        int start = 0;
+        int end = arr.length - 1;
+
+        int maxElement = peakElement(arr);
+
+        int firstHalf = binarySearch4(arr,target,0,maxElement - 1);
+        int secondHalf = bSDescendingOrder(arr,target,maxElement + 1, arr.length - 1);
+
+        if(arr[maxElement] == target){
+            return maxElement;
+        }else if(firstHalf == -1){
+            return secondHalf;
+        }
+
+        return firstHalf;
+
+    }
+
+
+    public static int bSDescendingOrder(int[] arr, int target, int start, int end){
+
+        while (start <= end){
+            int mid = start + (end - start) / 2;
+
+            if(arr[mid] == target){
+                return mid;
+            }else if (arr[mid] < target){
+                end = mid - 1;
+            }else {
+                start = mid + 1;
+            }
+        }
+        return -1;
+    }
