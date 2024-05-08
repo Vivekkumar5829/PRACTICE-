@@ -1090,3 +1090,9 @@
         }
         return -1;
     }
+
+
+ // 18. Find the maximum element in a Bitonic Array.
+    public static int bitonicArray(int[] arr) {
+        return peakElement(arr);
+    }
