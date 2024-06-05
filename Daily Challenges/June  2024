@@ -65,3 +65,44 @@ public int longestPalindrome(String s) {
         // Return the total length of the longest palindrome
         return length;
     }
+
+
+// 5. 1002. Find Common Characters.
+ public List<String> commonChars(String[] words) {
+                HashMap<Character, Integer> map = new HashMap<>();
+        for(char ch : words[0].toCharArray()){
+            map.put(ch,map.getOrDefault(ch,0) + 1);
+        }
+//        System.out.println(map);
+
+
+
+        for(int i = 1; i < words.length; i++){
+            HashMap<Character, Integer> map2 = new HashMap<>();
+            for(char ch : words[i].toCharArray()){
+                map2.put(ch, map2.getOrDefault(ch, 0) + 1);
+            }
+//            System.out.println(map2);
+
+            for(Character keys : map.keySet()){
+                if(map2.containsKey(keys) && map.get(keys) > 0){
+                    map.put(keys, Math.min(map.get(keys), map2.get(keys)));
+                }else{
+                    map.put(keys,0);
+                }
+            }
+//            System.out.println(map);
+        }
+
+        List<String> result = new ArrayList<>();
+        for(Character ch : map.keySet()){
+            if(map.get(ch) > 0){
+                for(int i = 0; i < map.get(ch); i++){
+                    result.add(ch + "");
+                }
+            }
+        }
+
+//        System.out.println(result);
+        return result;
+    }
