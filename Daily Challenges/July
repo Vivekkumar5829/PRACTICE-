@@ -146,3 +146,16 @@ public double averageWaitingTime(int[][] customers) {
 
         return time_waiting / n;
     }
+
+
+// 10. 1598. Crawler Log Folder.
+public int minOperations(String[] logs) {
+        int res = 0;
+        for (String log: logs) {
+            res += add(log,res);
+        }
+        return res;
+    }
+    private int add(String log, int res) {
+        return log.charAt(1) == '.' ? res == 0 ? 0 : -1 : log.charAt(0) == '.' ? 0 : 1;
+    }
