@@ -9,7 +9,7 @@ int countSeniors(vector<string>& details) {
     }
 
 
-// 2.
+// 2. 2134. Minimum Swaps to Group All 1's Together II
 int minSwaps(vector<int>& nums) {
         int k = accumulate(nums.begin(), nums.end(), 0);
         int n = nums.size();
