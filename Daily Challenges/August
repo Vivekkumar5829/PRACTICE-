@@ -7,3 +7,6 @@ int countSeniors(vector<string>& details) {
         }
         return ans;
     }
+
+
+// 2.
